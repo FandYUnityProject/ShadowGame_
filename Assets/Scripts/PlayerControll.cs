@@ -60,7 +60,7 @@ public class PlayerControll : MonoBehaviour {
 			h = CrossPlatformInputManager.GetAxis ("Horizontal");				// 入力デバイスの水平軸をhで定義
 			v = CrossPlatformInputManager.GetAxis ("Vertical") * 3;				// 入力デバイスの垂直軸をvで定義
 		}
-		Debug.Log (h + "   " + v);
+		//Debug.Log (h + "   " + v);
 		//rb.useGravity = true;//ジャンプ中に重力を切るので、それ以外は重力の影響を受けるようにする
 
 

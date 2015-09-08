@@ -13,6 +13,6 @@ public class LightGardWallMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.PingPong(Time.time, moveDistance));
+		transform.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time, moveDistance), transform.position.z);
 	}
 }
