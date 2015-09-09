@@ -2,29 +2,47 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class SaveDataScript : MonoBehaviour {
+public class SaveDataScript : MonoBehaviour
+{
 
-	public bool isUseDebug  = false;
-	public bool isAllCrear  = false;
+	public bool isUseDebug = false;
+	public bool isAllCrear = false;
 	public bool isAllDelete = false;
 
+	// 目標タイムリスト
+	private string[] ThreeStarsTime = 
+		new string[] {null, "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
+						  , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
+					      , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", null
+	};
+	private string[] TwoStarsTime = 
+		new string[] {null, "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
+						  , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
+						  , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", null
+	};
+	private string[] OneStarTime = 
+		new string[] {null, "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
+						  , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
+						  , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "88:59", "99:59", null
+	};
 	public static GameObject[] StageSelectArray = new GameObject[31];
 	
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 
 		// 解禁されたステージオブジェクトを保存する
-		for( int i=1; i<=30; i++ ){
-			if( i>=1 && i<=9 ){
-				StageSelectArray[i] = GameObject.Find("StageSelect0" + i);
+		for (int i=1; i<=30; i++) {
+			if (i >= 1 && i <= 9) {
+				StageSelectArray [i] = GameObject.Find ("StageSelect0" + i);
 			} else {
-				StageSelectArray[i] = GameObject.Find("StageSelect" + i);
+				StageSelectArray [i] = GameObject.Find ("StageSelect" + i);
 			}
 		}
 		
 		// 【デバッグ用】仮セーブ
 		if (isUseDebug) {
-			if ( isAllCrear ){
+			if (isAllCrear) {
 				for (int i=1; i<=30; i++) {
 					if (i >= 1 && i <= 9) { 
 						PlayerPrefs.SetInt ("Stage0" + i + "UnLock", 1);
@@ -41,7 +59,7 @@ public class SaveDataScript : MonoBehaviour {
 
 				PlayerPrefs.SetString ("Stars", "90");
 			}
-			if ( isAllDelete ){
+			if (isAllDelete) {
 				for (int i=1; i<=30; i++) {
 					if (i >= 1 && i <= 9) { 
 						PlayerPrefs.SetInt ("Stage0" + i + "UnLock", 0);
@@ -62,96 +80,168 @@ public class SaveDataScript : MonoBehaviour {
 
 
 		// typeで指定した型の全てのオブジェクトを配列で取得し,その要素数分繰り返す.
-		foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject))){
+		foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject))) {
 			// シーン上に存在するオブジェクトならば処理
-			if (obj.activeInHierarchy){
-				for (int i=1; i<=30; i++) {
-					if( i >= 1 && i <= 9 ){ 
+			//if (obj.activeInHierarchy){
+			for (int i=1; i<=30; i++) {
+				if (i >= 1 && i <= 9) { 
 
-						// ステージ解禁の有無によって表示非表示を変更
-						if(PlayerPrefs.GetInt ("Stage0" + i + "UnLock") == 1){
-							if(obj.name == "StageLock0" + i ){
-								Destroy(obj);
+					// 目標タイム達成によって表示を変更
+					if (obj.name == "Stage0" + i + "OneStarTime") {
+						obj.GetComponent<Text> ().text = OneStarTime [i];
+						obj.GetComponent<Text> ().fontSize = 22;
+					}
+					if (obj.name == "Stage0" + i + "TwoStarsTime") {
+						obj.GetComponent<Text> ().text = TwoStarsTime [i];
+						obj.GetComponent<Text> ().fontSize = 22;
+					}
+					if (obj.name == "Stage0" + i + "ThreeStarsTime") {
+						obj.GetComponent<Text> ().text = ThreeStarsTime [i];
+						obj.GetComponent<Text> ().fontSize = 22;
+					}
+
+					if (PlayerPrefs.GetInt ("Stage0" + i + "OneStarClear") == 1) {
+						if (obj.name == "Stage0" + i + "OneStarTime") {
+							obj.GetComponent<Text> ().text = "CLEAR!";
+							obj.GetComponent<Text> ().fontSize = 22;
+						}
+						if (PlayerPrefs.GetInt ("Stage0" + i + "TwoStarsClear") == 1) {
+							if (obj.name == "Stage0" + i + "TwoStarsTime") {
+								obj.GetComponent<Text> ().text = "CLEAR!";
+								obj.GetComponent<Text> ().fontSize = 22;
 							}
-							if(obj.name == "StageSelect0" + i ){
-								obj.SetActiveRecursively(true);
+							if (PlayerPrefs.GetInt ("Stage0" + i + "ThreeStarsClear") == 1) {
+								if (obj.name == "Stage0" + i + "ThreeStarsTime") {
+									obj.GetComponent<Text> ().text = "CLEAR!";
+									obj.GetComponent<Text> ().fontSize = 22;
+								}
+							} else {
+								if (obj.name == "Stage0" + i + "ThreeStarsTime") {
+									obj.GetComponent<Text> ().text = "??:??";
+									obj.GetComponent<Text> ().fontSize = 22;
+								}
 							}
 						} else {
-							if(obj.name == "StageLock0" + i ){
-								obj.SetActiveRecursively(true);
+							if (obj.name == "Stage0" + i + "TwoStarsTime") {
+								obj.GetComponent<Text> ().text = "??:??";
+								obj.GetComponent<Text> ().fontSize = 22;
 							}
-							if(obj.name == "StageSelect0" + i ){
-								obj.SetActiveRecursively(false);
+							if (obj.name == "Stage0" + i + "ThreeStarsTime") {
+								obj.GetComponent<Text> ().text = "??:??";
+								obj.GetComponent<Text> ().fontSize = 22;
 							}
 						}
+					} else {
+						if (obj.name == "Stage0" + i + "TwoStarsTime") {
+							obj.GetComponent<Text> ().text = "??:??";
+							obj.GetComponent<Text> ().fontSize = 22;
+						}
+						if (obj.name == "Stage0" + i + "ThreeStarsTime") {
+							obj.GetComponent<Text> ().text = "??:??";
+							obj.GetComponent<Text> ().fontSize = 22;
+						}
+					}
 
-						// 目標タイム達成によって表示を変更
-						if(PlayerPrefs.GetInt ("Stage0" + i + "ThreeStarsClear") == 1){
-							if(obj.name == "Stage0" + i + "ThreeStarsTime" ){
-								obj.GetComponent<Text>().text = "CLEAR!";
-								obj.GetComponent<Text>().fontSize = 22;
-							}
+					// ステージ解禁の有無によって表示非表示を変更
+					if (PlayerPrefs.GetInt ("Stage0" + i + "UnLock") == 1) {
+						if (obj.name == "StageLock0" + i) {
+							Destroy (obj);
 						}
-						if(PlayerPrefs.GetInt ("Stage0" + i + "TwoStarsClear") == 1){
-							if(obj.name == "Stage0" + i + "TwoStarsTime" ){
-								obj.GetComponent<Text>().text = "CLEAR!";
-								obj.GetComponent<Text>().fontSize = 22;
-							}
+						if (obj.name == "StageSelect0" + i) {
+							obj.SetActiveRecursively (true);
 						}
-						if(PlayerPrefs.GetInt ("Stage0" + i + "OneStarClear") == 1){
-							if(obj.name == "Stage0" + i + "OneStarTime" ){
-								obj.GetComponent<Text>().text = "CLEAR!";
-								obj.GetComponent<Text>().fontSize = 22;
-							}
+					} else {
+						if (obj.name == "StageLock0" + i) {
+							obj.SetActiveRecursively (true);
 						}
+						if (obj.name == "StageSelect0" + i) {
+							obj.SetActiveRecursively (false);
+						}
+					}
 
-					} else{
 
-						// ステージ解禁の有無によって表示非表示を変更
-						if(PlayerPrefs.GetInt ("Stage" + i + "UnLock") == 1){
-							if(obj.name == "StageLock" + i ){
-								Destroy(obj);
-							}
-							if(obj.name == "StageSelect" + i ){
-								obj.SetActiveRecursively(true);
-							}
-						} else {
-							if(obj.name == "StageLock" + i ){
-								obj.SetActiveRecursively(true);
-							}
-							if(obj.name == "StageSelect" + i ){
-								obj.SetActiveRecursively(false);
-							}
-						}
+				} else if (i >= 10 && i <= 30) {
+
+					// 目標タイム達成によって表示を変更
+					if (obj.name == "Stage" + i + "OneStarTime") {
+						obj.GetComponent<Text> ().text = OneStarTime [i];
+						obj.GetComponent<Text> ().fontSize = 22;
+					}
+					if (obj.name == "Stage" + i + "TwoStarsTime") {
+						obj.GetComponent<Text> ().text = TwoStarsTime [i];
+						obj.GetComponent<Text> ().fontSize = 22;
+					}
+					if (obj.name == "Stage" + i + "ThreeStarsTime") {
+						obj.GetComponent<Text> ().text = ThreeStarsTime [i];
+						obj.GetComponent<Text> ().fontSize = 22;
+					}
 						
-						// 目標タイム達成によって表示を変更
-						if(PlayerPrefs.GetInt ("Stage" + i + "ThreeStarsClear") == 1){
-							if(obj.name == "Stage" + i + "ThreeStarsTime" ){
-								obj.GetComponent<Text>().text = "CLEAR!";
-								obj.GetComponent<Text>().fontSize = 22;
+					if (PlayerPrefs.GetInt ("Stage" + i + "OneStarClear") == 1) {
+						if (obj.name == "Stage" + i + "OneStarTime") {
+							obj.GetComponent<Text> ().text = "CLEAR!";
+							obj.GetComponent<Text> ().fontSize = 22;
+						}
+						if (PlayerPrefs.GetInt ("Stage" + i + "TwoStarsClear") == 1) {
+							if (obj.name == "Stage" + i + "TwoStarsTime") {
+								obj.GetComponent<Text> ().text = "CLEAR!";
+								obj.GetComponent<Text> ().fontSize = 22;
+							}
+							if (PlayerPrefs.GetInt ("Stage" + i + "ThreeStarsClear") == 1) {
+								if (obj.name == "Stage" + i + "ThreeStarsTime") {
+									obj.GetComponent<Text> ().text = "CLEAR!";
+									obj.GetComponent<Text> ().fontSize = 22;
+								}
+							} else {
+								if (obj.name == "Stage" + i + "ThreeStarsTime") {
+									obj.GetComponent<Text> ().text = "??:??";
+									obj.GetComponent<Text> ().fontSize = 22;
+								}
+							}
+						} else {
+							if (obj.name == "Stage" + i + "TwoStarsTime") {
+								obj.GetComponent<Text> ().text = "??:??";
+								obj.GetComponent<Text> ().fontSize = 22;
+							}
+							if (obj.name == "Stage" + i + "ThreeStarsTime") {
+								obj.GetComponent<Text> ().text = "??:??";
+								obj.GetComponent<Text> ().fontSize = 22;
 							}
 						}
-						if(PlayerPrefs.GetInt ("Stage" + i + "TwoStarsClear") == 1){
-							if(obj.name == "Stage" + i + "TwoStarsTime" ){
-								obj.GetComponent<Text>().text = "CLEAR!";
-								obj.GetComponent<Text>().fontSize = 22;
-							}
+					} else {
+						if (obj.name == "Stage" + i + "TwoStarsTime") {
+							obj.GetComponent<Text> ().text = "??:??";
+							obj.GetComponent<Text> ().fontSize = 22;
 						}
-						if(PlayerPrefs.GetInt ("Stage" + i + "OneStarClear") == 1){
-							if(obj.name == "Stage" + i + "OneStarTime" ){
-								obj.GetComponent<Text>().text = "CLEAR!";
-								obj.GetComponent<Text>().fontSize = 22;
-							}
+						if (obj.name == "Stage" + i + "ThreeStarsTime") {
+							obj.GetComponent<Text> ().text = "??:??";
+							obj.GetComponent<Text> ().fontSize = 22;
 						}
+					}
 
+					// ステージ解禁の有無によって表示非表示を変更
+					if (PlayerPrefs.GetInt ("Stage" + i + "UnLock") == 1) {
+						if (obj.name == "StageLock" + i) {
+							Destroy (obj);
+						}
+						if (obj.name == "StageSelect" + i) {
+							obj.SetActiveRecursively (true);
+						}
+					} else {
+						if (obj.name == "StageLock" + i) {
+							obj.SetActiveRecursively (true);
+						}
+						if (obj.name == "StageSelect" + i) {
+							obj.SetActiveRecursively (false);
+						}
 					}
 				}
-
-				// ゲットした星の数
-				if(obj.name == "StarCount" ){
-					obj.GetComponent<Text>().text = PlayerPrefs.GetString ("Stars");
-				}
 			}
+
+			// ゲットした星の数
+			if (obj.name == "StarCount") {
+				obj.GetComponent<Text> ().text = PlayerPrefs.GetString ("Stars");
+			}
+			//}
 		}
 	}
 }
