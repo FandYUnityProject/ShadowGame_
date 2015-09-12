@@ -11,17 +11,17 @@ public class SaveDataScript : MonoBehaviour
 
 	// 目標タイムリスト
 	public static string[] ThreeStarsTime = 
-		new string[] {null, "00:10", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
+		new string[] {null, "00:30", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
 						  , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
 					      , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", null
 	};
 	public static string[] TwoStarsTime = 
-		new string[] {null, "00:20", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
+		new string[] {null, "00:40", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
 						  , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
 						  , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", null
 	};
 	public static string[] OneStarTime = 
-		new string[] {null, "00:30", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
+		new string[] {null, "01:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
 						  , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"
 						  , "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "88:59", "99:59", null
 	};
@@ -116,13 +116,13 @@ public class SaveDataScript : MonoBehaviour
 									obj.GetComponent<Text> ().fontSize = 22;
 								}
 							} else {
-								if (obj.name == "Stage0" + i + "ThreeStarsTime") {
+								if (obj.name == "Stage0" + i + "ThreeStarsTime" && PlayerPrefs.GetInt ("Stage0" + i + "TwoStarsClear") == 0) {
 									obj.GetComponent<Text> ().text = "??:??";
 									obj.GetComponent<Text> ().fontSize = 22;
 								}
 							}
 						} else {
-							if (obj.name == "Stage0" + i + "TwoStarsTime") {
+							if (obj.name == "Stage0" + i + "TwoStarsTime" && PlayerPrefs.GetInt ("Stage0" + i + "OneStarClear") == 0) {
 								obj.GetComponent<Text> ().text = "??:??";
 								obj.GetComponent<Text> ().fontSize = 22;
 							}
@@ -192,13 +192,13 @@ public class SaveDataScript : MonoBehaviour
 									obj.GetComponent<Text> ().fontSize = 22;
 								}
 							} else {
-								if (obj.name == "Stage" + i + "ThreeStarsTime") {
+								if (obj.name == "Stage" + i + "ThreeStarsTime" && PlayerPrefs.GetInt ("Stage0" + i + "TwoStarsClear") == 0) {
 									obj.GetComponent<Text> ().text = "??:??";
 									obj.GetComponent<Text> ().fontSize = 22;
 								}
 							}
 						} else {
-							if (obj.name == "Stage" + i + "TwoStarsTime") {
+							if (obj.name == "Stage" + i + "TwoStarsTime" && PlayerPrefs.GetInt ("Stage0" + i + "OneStarClear") == 0) {
 								obj.GetComponent<Text> ().text = "??:??";
 								obj.GetComponent<Text> ().fontSize = 22;
 							}

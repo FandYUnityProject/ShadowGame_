@@ -4,13 +4,13 @@ using System.Collections;
 
 public class TimerScript : MonoBehaviour {
 
-	private float NowTime = 0.0f;
+	public static float NowTime = 0.0f;
 	private float SecTime = 0.0f;
 	private int MinTime = 0;
 	
-	public int ThreeStarsLimitTime = 60;
-	public int TwoStarsLimitTime   = 90;
-	public int OneStarLimitTime    = 120;
+	public static int ThreeStarsLimitTime = 60;
+	public static int TwoStarsLimitTime   = 90;
+	public static int OneStarLimitTime    = 120;
 
 	public Sprite ThreeStarsImage;
 	public Sprite TwoStarsImage;
@@ -19,9 +19,11 @@ public class TimerScript : MonoBehaviour {
 
 	public Image ClearGetStarImage;
 
-	public int NowStageNumber = 0;
+	public static int NowStageNumber = 0;
 
 	void Start(){
+
+		NowTime = 0.0f;
 
 		for (int i=0; i<=30; i++) {
 			if (i >= 1 && i <= 9) {
@@ -71,8 +73,10 @@ public class TimerScript : MonoBehaviour {
 	void Update (){
 
 		//1秒に1ずつ増やしていく
-		NowTime += Time.deltaTime;
-		SecTime += Time.deltaTime;
+		if (!GoalTouchScript.GoalTouch) {
+			NowTime += Time.deltaTime;
+			SecTime += Time.deltaTime;
+		}
 
 		if (SecTime >= 60) {
 			SecTime = 0;
@@ -135,21 +139,5 @@ public class TimerScript : MonoBehaviour {
 		} else if (NowTime > OneStarLimitTime) {
 			ClearGetStarImage.sprite = NoStarImage;
 		}
-		/*
-		else {
-			ClearGetStarImage.sprite = NoStarImage;
-		}
-		*/
-		/*
-		if (NowTime <= ThreeStarsLimitTime) {
-			ClearGetStarImage.sprite = ThreeStarsImage;
-		} else if (ThreeStarsLimitTime < NowTime && NowTime <= TwoStarsLimitTime) {
-			ClearGetStarImage.sprite = TwoStarsImage;
-		} else if (TwoStarsLimitTime < NowTime && NowTime <= OneStarLimitTime) {
-			ClearGetStarImage.sprite = OneStarImage;
-		} else {
-			ClearGetStarImage.sprite = NoStarImage;
-		}
-		*/
 	}
 }

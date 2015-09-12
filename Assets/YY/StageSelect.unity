@@ -28182,9 +28182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1771afcf53e9e49418a8289ce7f23d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUseDebug: 1
+  isUseDebug: 0
   isAllCrear: 0
-  isAllDelete: 1
+  isAllDelete: 0
 --- !u!4 &1126478169
 Transform:
   m_ObjectHideFlags: 0
