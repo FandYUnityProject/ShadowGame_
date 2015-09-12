@@ -76,7 +76,13 @@ public class SaveDataScript : MonoBehaviour
 
 				PlayerPrefs.SetString ("Stars", "10");
 			}
+		} else {
+			for (int i=1; i<=5; i++){
+				// 最初の5面は最初から解禁
+				PlayerPrefs.SetInt ("Stage0" + i + "UnLock", 1);
+			}
 		}
+
 
 
 		// typeで指定した型の全てのオブジェクトを配列で取得し,その要素数分繰り返す.
