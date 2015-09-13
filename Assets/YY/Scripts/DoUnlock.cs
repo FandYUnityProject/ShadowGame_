@@ -9,12 +9,13 @@ public class DoUnlock : MonoBehaviour {
 	public GameObject starCountObj;
 	public GameObject unlockMenu;
 
-	LockStageSelect lockStageSelect;
+	Button lockStageButton;
 
 	private GameObject Chane01;
 	private GameObject Chane02;
 	private GameObject Lock;
 	private GameObject StageLock;
+	private GameObject StageLockImage;
 	private GameObject StageSelect;
 	
 	private GameObject ArrowRight;
@@ -23,7 +24,7 @@ public class DoUnlock : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		lockStageSelect = GetComponent<LockStageSelect> ();
+		// lockStageSelect = GetComponent<LockStageSelect> ();
 		ArrowRight = GameObject.Find ("ArrowRight");
 		ArrowLeft = GameObject.Find ("ArrowLeft");
 		StageSlider = GameObject.Find ("StageSlider");
@@ -72,11 +73,18 @@ public class DoUnlock : MonoBehaviour {
 		for(int i=1; i<=30; i++){ 
 			if( i>=1 && i<=9 ){ 
 				if( stageObjName == "Stage0" + i + "UnLock" ){
-					Chane01     = GameObject.Find("StageLock0" + i + "Chane01");
-					Chane02     = GameObject.Find("StageLock0" + i + "Chane02");
-					Lock        = GameObject.Find("StageLock0" + i + "Lock");
-					StageLock   = GameObject.Find("StageLock0" + i);
-					StageSelect = SaveDataScript.StageSelectArray[i];
+					Chane01         = GameObject.Find("StageLock0" + i + "Chane01");
+					Chane02         = GameObject.Find("StageLock0" + i + "Chane02");
+					Lock            = GameObject.Find("StageLock0" + i + "Lock");
+					StageLock       = GameObject.Find("StageLock0" + i);
+
+					// 一度ロックを解除したら再びロック解除メニューが表示されないようボタンを非活性にする
+					StageLockImage  = GameObject.Find("StageLock0" + i + "/StageImage");
+					lockStageButton = StageLockImage.GetComponent<UnityEngine.UI.Button>();
+					Debug.Log(lockStageButton);
+					lockStageButton.enabled = false;
+
+					StageSelect     = SaveDataScript.StageSelectArray[i];
 					PlayerPrefs.SetInt ("Stage0" + i + "UnLock", 1);
 				}
 			} else {
@@ -85,6 +93,13 @@ public class DoUnlock : MonoBehaviour {
 					Chane02     = GameObject.Find("StageLock" + i + "Chane02");
 					Lock        = GameObject.Find("StageLock" + i + "Lock");
 					StageLock   = GameObject.Find("StageLock" + i);
+
+					// 一度ロックを解除したら再びロック解除メニューが表示されないようボタンを非活性にする
+					StageLockImage  = GameObject.Find("StageLock" + i + "/StageImage");
+					lockStageButton = StageLockImage.GetComponent<UnityEngine.UI.Button>();
+					Debug.Log(lockStageButton);
+					lockStageButton.enabled = false;
+
 					StageSelect = SaveDataScript.StageSelectArray[i];
 					PlayerPrefs.SetInt ("Stage" + i + "UnLock", 1);
 				}
@@ -97,6 +112,8 @@ public class DoUnlock : MonoBehaviour {
 
 	private void CompletedHandler()
 	{
+		lockStageButton.enabled = true;
+
 		// ロックステージ画面を削除する
 		Destroy (StageLock);
 		// 解除されたステージを表示する
