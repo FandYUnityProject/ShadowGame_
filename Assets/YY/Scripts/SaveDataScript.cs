@@ -61,7 +61,12 @@ public class SaveDataScript : MonoBehaviour
 			}
 			if (isAllDelete) {
 				for (int i=1; i<=30; i++) {
-					if (i >= 1 && i <= 9) { 
+					if (i >= 1 && i <= 5) { 
+						PlayerPrefs.SetInt ("Stage0" + i + "UnLock", 1);
+						PlayerPrefs.SetInt ("Stage0" + i + "ThreeStarsClear", 0);
+						PlayerPrefs.SetInt ("Stage0" + i + "TwoStarsClear", 0);
+						PlayerPrefs.SetInt ("Stage0" + i + "OneStarClear", 0);
+					}else if (i >= 6 && i <= 9) { 
 						PlayerPrefs.SetInt ("Stage0" + i + "UnLock", 0);
 						PlayerPrefs.SetInt ("Stage0" + i + "ThreeStarsClear", 0);
 						PlayerPrefs.SetInt ("Stage0" + i + "TwoStarsClear", 0);
