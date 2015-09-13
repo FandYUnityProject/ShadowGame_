@@ -21,7 +21,7 @@ public class GoalTouchScript : MonoBehaviour {
 
 				Debug.Log ("Stars:" + NowGetStars + ", NowStageNumber" + TimerScript.NowStageNumber);
 				Debug.Log ("Three:" + TimerScript.ThreeStarsLimitTime + ", Two" + TimerScript.TwoStarsLimitTime + ", One" + TimerScript.OneStarLimitTime);
-				Debug.Log ("Now:" + TimerScript.NowTime);
+				Debug.Log ("Now:" + Mathf.FloorToInt(TimerScript.NowTime));
 				Debug.Log ("3Clear:" + PlayerPrefs.GetInt ("Stage0" + TimerScript.NowStageNumber + "ThreeStarsClear"));
 				Debug.Log ("2Clear:" + PlayerPrefs.GetInt ("Stage0" + TimerScript.NowStageNumber + "TwoStarsClear"));
 				Debug.Log ("1Clear:" + PlayerPrefs.GetInt ("Stage0" + TimerScript.NowStageNumber + "OneStarClear"));
@@ -29,7 +29,7 @@ public class GoalTouchScript : MonoBehaviour {
 				if (TimerScript.NowStageNumber >= 1 && TimerScript.NowStageNumber <= 9) {
 
 					// ３星タイムをクリアしたら
-					if (TimerScript.ThreeStarsLimitTime >= TimerScript.NowTime) {
+					if (TimerScript.ThreeStarsLimitTime >= Mathf.FloorToInt(TimerScript.NowTime)) {
 						
 						if (PlayerPrefs.GetInt ("Stage0" + TimerScript.NowStageNumber + "ThreeStarsClear") == 0) {
 							
@@ -55,7 +55,7 @@ public class GoalTouchScript : MonoBehaviour {
 						PlayerPrefs.SetInt ("Stage0" + TimerScript.NowStageNumber + "ThreeStarsClear", 1);
 					}
 					// ２星タイムをクリアしたら
-					if (TimerScript.ThreeStarsLimitTime < TimerScript.NowTime && TimerScript.NowTime <= TimerScript.TwoStarsLimitTime) {
+					if (TimerScript.ThreeStarsLimitTime < Mathf.FloorToInt(TimerScript.NowTime) && Mathf.FloorToInt(TimerScript.NowTime) <= TimerScript.TwoStarsLimitTime) {
 
 						if (PlayerPrefs.GetInt ("Stage0" + TimerScript.NowStageNumber + "TwoStarsClear") == 0) {
 							// 既に１星クリアをしていたら、獲得星を１つ増やす
@@ -73,7 +73,7 @@ public class GoalTouchScript : MonoBehaviour {
 						}
 					}
 					// １星タイムをクリアし、まだ１星クリアをしていなければ１星クリアのフラグを立て、獲得星を１つ増やす
-					if (TimerScript.TwoStarsLimitTime < TimerScript.NowTime && TimerScript.NowTime <= TimerScript.OneStarLimitTime) {
+					if (TimerScript.TwoStarsLimitTime < Mathf.FloorToInt(TimerScript.NowTime) && Mathf.FloorToInt(TimerScript.NowTime) <= TimerScript.OneStarLimitTime) {
 						if (PlayerPrefs.GetInt ("Stage0" + TimerScript.NowStageNumber + "OneStarClear") == 0) {
 							PlayerPrefs.SetInt ("Stage0" + TimerScript.NowStageNumber + "OneStarClear", 1);
 							NowGetStars = NowGetStars + 1;
@@ -83,7 +83,7 @@ public class GoalTouchScript : MonoBehaviour {
 				} else if (TimerScript.NowStageNumber >= 10 && TimerScript.NowStageNumber <= 30) {
 
 					// ３星タイムをクリアしたら
-					if (TimerScript.ThreeStarsLimitTime >= TimerScript.NowTime) {
+					if (TimerScript.ThreeStarsLimitTime >= Mathf.FloorToInt(TimerScript.NowTime)) {
 
 						if (PlayerPrefs.GetInt ("Stage" + TimerScript.NowStageNumber + "ThreeStarsClear") == 0) {
 
@@ -109,7 +109,7 @@ public class GoalTouchScript : MonoBehaviour {
 						PlayerPrefs.SetInt ("Stage" + TimerScript.NowStageNumber + "ThreeStarsClear", 1);
 					}
 					// ２星タイムをクリアしたら
-					if (TimerScript.ThreeStarsLimitTime < TimerScript.NowTime && TimerScript.NowTime <= TimerScript.TwoStarsLimitTime) {
+					if (TimerScript.ThreeStarsLimitTime < Mathf.FloorToInt(TimerScript.NowTime) && Mathf.FloorToInt(TimerScript.NowTime) <= TimerScript.TwoStarsLimitTime) {
 
 						if (PlayerPrefs.GetInt ("Stage" + TimerScript.NowStageNumber + "TwoStarsClear") == 0) {
 							// 既に１星クリアをしていたら、獲得星を１つ増やす
@@ -126,7 +126,7 @@ public class GoalTouchScript : MonoBehaviour {
 						}
 					}
 					// １星タイムをクリアし、まだ１星クリアをしていなければ１星クリアのフラグを立て、獲得星を１つ増やす
-					if (TimerScript.TwoStarsLimitTime < TimerScript.NowTime && TimerScript.NowTime <= TimerScript.OneStarLimitTime) {
+					if (TimerScript.TwoStarsLimitTime < Mathf.FloorToInt(TimerScript.NowTime) && Mathf.FloorToInt(TimerScript.NowTime) <= TimerScript.OneStarLimitTime) {
 						if (PlayerPrefs.GetInt ("Stage" + TimerScript.NowStageNumber + "OneStarClear") == 0) {
 							PlayerPrefs.SetInt ("Stage" + TimerScript.NowStageNumber + "OneStarClear", 1);
 							NowGetStars = NowGetStars + 1;

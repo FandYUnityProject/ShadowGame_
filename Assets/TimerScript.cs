@@ -83,7 +83,7 @@ public class TimerScript : MonoBehaviour {
 			MinTime++;
 		}
 
-		if (NowTime < 6000) {
+		if (Mathf.FloorToInt(NowTime) < 6000) {
 			if (SecTime < 10 && MinTime < 10) {
 				GetComponent<Text> ().text = ("0" + MinTime + ":0" + ((int)SecTime).ToString ());
 			} else if (SecTime >= 10 && MinTime < 10) {
@@ -98,7 +98,7 @@ public class TimerScript : MonoBehaviour {
 		}
 
 		// 獲得星の表示
-		if (NowTime <= ThreeStarsLimitTime) {
+		if (Mathf.FloorToInt(NowTime) <= ThreeStarsLimitTime) {
 			ClearGetStarImage.sprite = ThreeStarsImage;
 
 			if (NowStageNumber >= 1 && NowStageNumber <= 9) {
@@ -120,7 +120,7 @@ public class TimerScript : MonoBehaviour {
 					ClearGetStarImage.sprite = OneStarImage;
 				}
 			}
-		} else if (ThreeStarsLimitTime < NowTime && NowTime <= TwoStarsLimitTime) {
+		} else if (ThreeStarsLimitTime < Mathf.FloorToInt(NowTime) && Mathf.FloorToInt(NowTime) <= TwoStarsLimitTime) {
 			ClearGetStarImage.sprite = TwoStarsImage;
 
 			if (NowStageNumber >= 1 && NowStageNumber <= 9) {
@@ -134,9 +134,9 @@ public class TimerScript : MonoBehaviour {
 					ClearGetStarImage.sprite = OneStarImage;
 				}
 			}
-		} else if (TwoStarsLimitTime < NowTime && NowTime <= OneStarLimitTime) {
+		} else if (TwoStarsLimitTime < Mathf.FloorToInt(NowTime) && Mathf.FloorToInt(NowTime) <= OneStarLimitTime) {
 			ClearGetStarImage.sprite = OneStarImage;
-		} else if (NowTime > OneStarLimitTime) {
+		} else if (Mathf.FloorToInt(NowTime) > OneStarLimitTime) {
 			ClearGetStarImage.sprite = NoStarImage;
 		}
 	}
