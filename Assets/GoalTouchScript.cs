@@ -1,10 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GoalTouchScript : MonoBehaviour {
 
 	private int NowGetStars;
 	public static bool GoalTouch;
+	
+	public Text ClearTimeText;
+	public Text TimerText;
+	public GameObject ClearWindow;
+	public GameObject ClearStarImageObj;
+	public GameObject TimerPanel;
+	public Image ClearStarImage;
+	public Image GetStarImage;
 
 	void Start(){
 		GoalTouch = false;
@@ -146,10 +155,21 @@ public class GoalTouchScript : MonoBehaviour {
 	
 	private IEnumerator GoToStageSelect() {
 
+		TimerPanel.transform.position = new Vector3 (-100, -100, 0);
+
+		// ゲームクリアウィンドウの表示
+		ClearTimeText.GetComponent<Text>().text = TimerText.GetComponent<Text>().text;
+		iTween.ScaleTo (ClearWindow, iTween.Hash ("time", 0.5f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad", "oncomplete", "OnComplete","oncompletetarget", gameObject));
+
 		// 3秒待つ
-		yield return new WaitForSeconds (3.0f);
+		yield return new WaitForSeconds (5.0f);
 
 		// ステージ選択画面に移動
 		Application.LoadLevel ("StageSelect");
+	}
+
+	void OnComplete(){
+		ClearStarImage.sprite = GetStarImage.sprite;
+		iTween.ScaleTo (ClearStarImageObj, iTween.Hash ("time", 0.8f, "delay", 1.0f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad"));
 	}
 }
