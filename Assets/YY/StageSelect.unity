@@ -12054,7 +12054,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STAGE:01       Stage Title Text
+  m_Text: STAGE:01       Go Straight This Way!
 --- !u!222 &433886238
 CanvasRenderer:
   m_ObjectHideFlags: 0
