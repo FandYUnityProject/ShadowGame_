@@ -77,9 +77,11 @@ public class TimerScript : MonoBehaviour {
 			if( !LightColorChanger.inCircle ){
 				NowTime += Time.deltaTime;
 				SecTime += Time.deltaTime;
+				GetComponent<Text> ().color = new Color(255, 255, 255);
 			} else {
 				NowTime += Time.deltaTime * 2;
 				SecTime += Time.deltaTime * 2;
+				GetComponent<Text> ().color = new Color(255, 0, 0);
 			}
 		}
 

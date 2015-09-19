@@ -38,10 +38,8 @@ public class InvalidLamp : MonoBehaviour {
 		// 明滅を繰り返す
 		for (int i=0; i<7; i++) {
 			this.gameObject.GetComponent <MeshRenderer> ().enabled = false;
-			isInvalidLamp = true;
 			yield return new WaitForSeconds (0.01f);
 			this.gameObject.GetComponent <MeshRenderer> ().enabled = true;
-			isInvalidLamp = false;
 			yield return new WaitForSeconds (0.01f);
 		}
 
@@ -53,10 +51,8 @@ public class InvalidLamp : MonoBehaviour {
 		// 明滅を繰り返す
 		for (int i=0; i<7; i++) {
 			this.gameObject.GetComponent <MeshRenderer> ().enabled = false;
-			isInvalidLamp = true;
 			yield return new WaitForSeconds (0.01f);
 			this.gameObject.GetComponent <MeshRenderer> ().enabled = true;
-			isInvalidLamp = false;
 			yield return new WaitForSeconds (0.01f);
 		}
 
