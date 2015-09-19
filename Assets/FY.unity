@@ -877,7 +877,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440440, guid: f16986e89b2508747984c94a786b3141, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 30.1000004
+      value: 29.8500004
       objectReference: {fileID: 0}
     - target: {fileID: 440440, guid: f16986e89b2508747984c94a786b3141, type: 2}
       propertyPath: m_LocalRotation.x
@@ -902,6 +902,10 @@ Prefab:
     - target: {fileID: 163902, guid: f16986e89b2508747984c94a786b3141, type: 2}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 464488, guid: f16986e89b2508747984c94a786b3141, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 30.1499996
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f16986e89b2508747984c94a786b3141, type: 2}
@@ -993,7 +997,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497552, guid: 26900b1bfd25f41c7893e43b0053d193, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2314476, guid: 26900b1bfd25f41c7893e43b0053d193, type: 2}
       propertyPath: m_ReceiveShadows

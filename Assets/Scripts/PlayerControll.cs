@@ -19,7 +19,7 @@ public class PlayerControll : MonoBehaviour {
 	// ジャンプ威力
 	public float jumpPower = 3.0f; 
 	// キャラクターコントローラ（Boxコライダ）の参照
-	private BoxCollider col;
+	private CapsuleCollider col;
 	private Rigidbody rb;
 	// キャラクターコントローラ（Boxコライダ）の移動量
 	private Vector3 velocity;
@@ -34,7 +34,7 @@ public class PlayerControll : MonoBehaviour {
 	void Start ()
 	{
 		// CapsuleColliderコンポーネントを取得する（カプセル型コリジョン）
-		col = GetComponent<BoxCollider> ();
+		col = GetComponent<CapsuleCollider> ();
 		rb  = GetComponent<Rigidbody> ();
 		anim = GetComponent<Animator> ();
 		//メインカメラを取得する
