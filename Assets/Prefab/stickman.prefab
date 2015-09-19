@@ -562,11 +562,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452626}
-  - 65: {fileID: 6598590}
   - 114: {fileID: 11446590}
+  - 135: {fileID: 13550744}
   m_Layer: 0
   m_Name: cCamPos
-  m_TagString: Player
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -799,7 +799,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .600000024, y: 0, z: 30.1000004}
+  m_LocalPosition: {x: .600000024, y: 0, z: 12.3400002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400032}
@@ -1224,18 +1224,6 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 0}
---- !u!65 &6598590
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 176530}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .200000003, y: .200000003, z: .200000003}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9520426
 Animator:
   serializedVersion: 3
@@ -1265,7 +1253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sCam: {fileID: 140790}
-  smooth: 3
+  insmooth: 3
+  outsmooth: 1
   isTouch: 0
   targetY: 0
 --- !u!114 &11468138
@@ -1282,7 +1271,7 @@ MonoBehaviour:
   lookSmoother: 3
   useCurves: 1
   useCurvesHeight: .5
-  forwardSpeed: 7
+  forwardSpeed: 10
   backwardSpeed: 2
   rotateSpeed: 2
   jumpPower: 3
@@ -1297,9 +1286,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d760aa71773b6db4681af2ddd00c4025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 3
+  rayLength: 1.5
   shader1: {fileID: 0}
   shader2: {fileID: 0}
+--- !u!135 &13550744
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .100000001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13615052
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1309,8 +1310,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .62911129
-  m_Height: 4
+  m_Radius: .786424637
+  m_Height: 4.05163336
   m_Direction: 1
   m_Center: {x: 0, y: 2.20000005, z: 0}
 --- !u!137 &13708022
