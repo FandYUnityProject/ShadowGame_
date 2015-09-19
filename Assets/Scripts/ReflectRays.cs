@@ -28,6 +28,12 @@ public class ReflectRays : MonoBehaviour
 	public float timer = 0.01f;
 	public bool  isWarning = false;
 
+	private float PlayerDeathTime = 0.02f;
+	private float DeathTimer = 0.0f;
+
+	private GameObject playerObj;
+	private GameObject startObj;
+
 
 	void Awake ()
 	{  
@@ -44,6 +50,9 @@ public class ReflectRays : MonoBehaviour
 	void Start(){
 		//FindGameObjectsWithTagメソッド指定のタグのインスタンスを配列で取得
 		objects = GameObject.FindGameObjectsWithTag("GoalWall");
+		
+		playerObj = GameObject.Find ("Player");
+		startObj  = GameObject.Find ("StartObj");
 	}
 	
 	// Update is called once per frame
@@ -119,7 +128,20 @@ public class ReflectRays : MonoBehaviour
 						
 						isWarning = true;
 						timer = warningTimer;
+
+						DeathTimer += Time.deltaTime;
+
+						if( DeathTimer > PlayerDeathTime ){
+
+							if( !GoalTouchScript.GoalTouch ){
+								// 指定したコルーチンを呼び出す
+								StartCoroutine("PlayerDeath");
+							}
+						}
+					} else {
+						DeathTimer = 0.0f;
 					}
+
 					if (isWarning) {
 						
 						this.lineRenderer.material = materials [1];
@@ -183,7 +205,17 @@ public class ReflectRays : MonoBehaviour
 						
 						isWarning = true;
 						timer = warningTimer;
+						
+						DeathTimer += Time.deltaTime;
+						
+						if( DeathTimer > PlayerDeathTime ){
+							// 指定したコルーチンを呼び出す
+							StartCoroutine("PlayerDeath");
+						}
+					} else {
+						DeathTimer = 0.0f;
 					}
+
 					if (isWarning) {
 						
 						this.lineRenderer.material = materials [1];
@@ -204,5 +236,14 @@ public class ReflectRays : MonoBehaviour
 				}
 			}
 		}  
-	}  
+	} 
+
+	// PlayerDeathコルーチン
+	IEnumerator PlayerDeath(){
+	
+		playerObj.SetActiveRecursively(false);
+		yield return new WaitForSeconds (3.00f);
+		playerObj.transform.position = new Vector3 (startObj.transform.position.x, startObj.transform.position.y, startObj.transform.position.z);
+		playerObj.SetActiveRecursively(true);
+	}
 }  
