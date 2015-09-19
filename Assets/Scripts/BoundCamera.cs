@@ -27,7 +27,9 @@ public class BoundCamera : MonoBehaviour {
 	void CameraMove(){
 		if (isTouch) {
 			//ClearBody.Clearing(player);
-			transform.position = Vector3.Lerp (transform.position, sCam.transform.position + sCam.transform.forward - sCam.transform.up, Time.deltaTime * smooth);
+			transform.position = Vector3.Lerp (transform.position, 
+			                                   sCam.transform.position + sCam.transform.forward + sCam.transform.forward + sCam.transform.forward - sCam.transform.up - sCam.transform.up,
+			                                   Time.deltaTime * smooth);
 		} else {
 			player.GetComponent<Renderer>().material.color = sPColor;
 			transform.position = Vector3.Lerp (transform.position, sCam.transform.position, Time.deltaTime);

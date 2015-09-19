@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nColor: {r: .784313738, g: 0, b: .784313738, a: .313725501}
-  hotSpeed: 5
+  hotSpeed: 6
   coolSpeed: 1
 --- !u!64 &474638667
 MeshCollider:
@@ -897,43 +897,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440440, guid: f16986e89b2508747984c94a786b3141, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 163902, guid: f16986e89b2508747984c94a786b3141, type: 2}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6592882, guid: f16986e89b2508747984c94a786b3141, type: 2}
-      propertyPath: m_Size.z
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 142760, guid: f16986e89b2508747984c94a786b3141, type: 2}
-      propertyPath: m_TagString
-      value: Body
-      objectReference: {fileID: 0}
-    - target: {fileID: 145266, guid: f16986e89b2508747984c94a786b3141, type: 2}
-      propertyPath: m_TagString
-      value: Body
-      objectReference: {fileID: 0}
-    - target: {fileID: 163602, guid: f16986e89b2508747984c94a786b3141, type: 2}
-      propertyPath: m_TagString
-      value: Body
-      objectReference: {fileID: 0}
-    - target: {fileID: 120160, guid: f16986e89b2508747984c94a786b3141, type: 2}
-      propertyPath: m_TagString
-      value: Body
-      objectReference: {fileID: 0}
-    - target: {fileID: 163902, guid: f16986e89b2508747984c94a786b3141, type: 2}
-      propertyPath: m_TagString
-      value: Body
-      objectReference: {fileID: 0}
-    - target: {fileID: 6592882, guid: f16986e89b2508747984c94a786b3141, type: 2}
-      propertyPath: m_Size.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6592882, guid: f16986e89b2508747984c94a786b3141, type: 2}
-      propertyPath: m_Center.y
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f16986e89b2508747984c94a786b3141, type: 2}
@@ -1346,19 +1314,3 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1964345305}
---- !u!1 &2089523770 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 163602, guid: f16986e89b2508747984c94a786b3141, type: 2}
-  m_PrefabInternal: {fileID: 1163554030}
---- !u!64 &2089523773
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2089523770}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_Mesh: {fileID: 0}

@@ -178,7 +178,7 @@ GameObject:
   - 137: {fileID: 13708022}
   m_Layer: 0
   m_Name: Arm
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,7 +299,7 @@ GameObject:
   - 137: {fileID: 13710222}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,7 +331,7 @@ GameObject:
   - 114: {fileID: 11476594}
   m_Layer: 0
   m_Name: face
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,9 +435,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 493480}
   - 137: {fileID: 13724700}
+  - 64: {fileID: 6403568}
   m_Layer: 0
   m_Name: Leg
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -457,7 +458,7 @@ GameObject:
   - 114: {fileID: 11470002}
   m_Layer: 0
   m_Name: stickman
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1151,6 +1152,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!64 &6403568
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 0}
 --- !u!65 &6592882
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1161,8 +1174,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 4.5, z: 1}
-  m_Center: {x: 0, y: 2.0999999, z: 0}
+  m_Size: {x: 1.5, y: 4, z: 1.5}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!65 &6598590
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1204,7 +1217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sCam: {fileID: 140790}
-  smooth: 1
+  smooth: 3
   isTouch: 0
   targetY: 0
 --- !u!114 &11468138
