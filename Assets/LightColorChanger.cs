@@ -6,7 +6,7 @@ public class LightColorChanger : MonoBehaviour {
 	Renderer rend;
 	Color sColor;
 	public Color nColor;
-	bool inCircle = false;
+	public static bool inCircle = false;
 
 	public float hotSpeed=1f;
 	public float coolSpeed=1f;
