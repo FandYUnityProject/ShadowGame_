@@ -10,9 +10,11 @@ GameObject:
   - 4: {fileID: 440224}
   - 33: {fileID: 3340290}
   - 23: {fileID: 2388586}
+  - 64: {fileID: 6494904}
+  - 114: {fileID: 11477066}
   m_Layer: 0
   m_Name: ramptest
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -755,6 +757,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134864}
   m_Mesh: {fileID: 4300012, guid: 13218a00cca866b45bd7dd7431c9d714, type: 3}
+--- !u!64 &6494904
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 3233630add25ed744a10f6992433e20c, type: 3}
+--- !u!114 &11477066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e553d9944f44c0a4fa1d148f124e66d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nColor: {r: .784313738, g: 0, b: .784313738, a: .313725501}
+  hotSpeed: 6
+  coolSpeed: 1
 --- !u!114 &11495932
 MonoBehaviour:
   m_ObjectHideFlags: 1
