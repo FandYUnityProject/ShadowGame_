@@ -23,12 +23,13 @@ public class ClearBody : MonoBehaviour {
 
 	void Update(){
 		if (Physics.Raycast (transform.position, -transform.forward, out hit, rayLength)) {
-			distanceToWall = hit.distance / rayLength;
-			pR.material.color = new Color (1, 1, 1, distanceToWall) * sColor;
-			
-			pR.material.shader = shader1;
+			if(hit.collider.tag=="Light"){
+			}else{
+				distanceToWall = hit.distance / rayLength;
+				pR.material.color = new Color (1, 1, 1, distanceToWall) * sColor;
+				pR.material.shader = shader1;
+			}
 		} else {
-
 			pR.material.shader = shader2;
 		}
 	}
