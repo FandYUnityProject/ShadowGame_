@@ -33,6 +33,18 @@ public class LightColorChanger : MonoBehaviour {
 			Debug.Log(inCircle);
 		}
 	}
+
+	void OnTriggerStay(Collider coll){
+		if (coll.gameObject.tag == "Body") {
+			//  ランプが付いているか付いていないかでライトに当たってるか当たっていないかを判定
+			if( InvalidLamp.isInvalidLamp ){
+				inCircle = false;
+			} else {
+				inCircle = true;
+			}
+		}
+	}
+
 	void OnTriggerExit(Collider coll){
 		if (coll.gameObject.tag == "Body") {
 			inCircle = false;

@@ -74,8 +74,13 @@ public class TimerScript : MonoBehaviour {
 
 		//1秒に1ずつ増やしていく
 		if (!GoalTouchScript.GoalTouch) {
-			NowTime += Time.deltaTime;
-			SecTime += Time.deltaTime;
+			if( !LightColorChanger.inCircle ){
+				NowTime += Time.deltaTime;
+				SecTime += Time.deltaTime;
+			} else {
+				NowTime += Time.deltaTime * 2;
+				SecTime += Time.deltaTime * 2;
+			}
 		}
 
 		if (SecTime >= 60) {

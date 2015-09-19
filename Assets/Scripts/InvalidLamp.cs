@@ -6,6 +6,8 @@ public class InvalidLamp : MonoBehaviour {
 	public float startDilayTime = 0.0f;
 	private bool isStartDilay;
 
+	public static bool isInvalidLamp = false;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -30,25 +32,31 @@ public class InvalidLamp : MonoBehaviour {
 
 		// 点灯
 		this.gameObject.GetComponent <MeshRenderer>().enabled = true;
+		isInvalidLamp = false;
 		yield return new WaitForSeconds(3.00f);
 
 		// 明滅を繰り返す
 		for (int i=0; i<7; i++) {
 			this.gameObject.GetComponent <MeshRenderer> ().enabled = false;
+			isInvalidLamp = true;
 			yield return new WaitForSeconds (0.01f);
 			this.gameObject.GetComponent <MeshRenderer> ().enabled = true;
+			isInvalidLamp = false;
 			yield return new WaitForSeconds (0.01f);
 		}
 
 		// 消灯
 		this.gameObject.GetComponent <MeshRenderer>().enabled = false;
+		isInvalidLamp = true;
 		yield return new WaitForSeconds(1.50f);
 
 		// 明滅を繰り返す
 		for (int i=0; i<7; i++) {
 			this.gameObject.GetComponent <MeshRenderer> ().enabled = false;
+			isInvalidLamp = true;
 			yield return new WaitForSeconds (0.01f);
 			this.gameObject.GetComponent <MeshRenderer> ().enabled = true;
+			isInvalidLamp = false;
 			yield return new WaitForSeconds (0.01f);
 		}
 
