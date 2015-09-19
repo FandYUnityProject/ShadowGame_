@@ -1125,15 +1125,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163902}
-<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
   m_LocalPosition: {x: -22, y: 0, z: 11}
   m_LocalScale: {x: .5, y: .5, z: .5}
-=======
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .600000024, y: 0, z: 12.3400002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
->>>>>>> origin/master
   m_Children:
   - {fileID: 400032}
   - {fileID: 465864}
@@ -1616,12 +1610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sCam: {fileID: 140790}
-<<<<<<< HEAD
   smooth: 1
-=======
-  insmooth: 3
-  outsmooth: 1
->>>>>>> origin/master
   isTouch: 0
   targetY: 0
 --- !u!114 &11468138
@@ -1656,7 +1645,6 @@ MonoBehaviour:
   rayLength: 1.5
   shader1: {fileID: 0}
   shader2: {fileID: 0}
-<<<<<<< HEAD
 --- !u!136 &13611610
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1670,20 +1658,6 @@ CapsuleCollider:
   m_Height: .0599999987
   m_Direction: 1
   m_Center: {x: -2.0661344e-05, y: .0199999996, z: -.00112738833}
-=======
---- !u!135 &13550744
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 176530}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: .100000001
-  m_Center: {x: 0, y: 0, z: 0}
->>>>>>> origin/master
 --- !u!136 &13615052
 CapsuleCollider:
   m_ObjectHideFlags: 1
