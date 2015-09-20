@@ -381,6 +381,21 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400012, guid: c549c3ea40be24e6e9490ceacea81780, type: 2}
   m_PrefabInternal: {fileID: 1198266779}
+--- !u!1 &334038098 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 163902, guid: f16986e89b2508747984c94a786b3141, type: 2}
+  m_PrefabInternal: {fileID: 291534118}
+--- !u!114 &334038103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 334038098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4773f9ac3dc4524b5bd0164586e1e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &351707468
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +482,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 459570, guid: c2dcf19124b724ebe8ea43e311341a39, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -22
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 459570, guid: c2dcf19124b724ebe8ea43e311341a39, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1306,7 +1321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  moveDistance_X: 40
+  moveDistance_X: 37
   moveDistance_Y: 0
   moveDistance_Z: 0
 --- !u!1 &2037974011 stripped

@@ -34,6 +34,8 @@ public class ReflectRays : MonoBehaviour
 	private GameObject playerObj;
 	private GameObject startObj;
 
+	public bool isAlertLight = false;
+
 
 	void Awake ()
 	{  
@@ -241,9 +243,26 @@ public class ReflectRays : MonoBehaviour
 	// PlayerDeathコルーチン
 	IEnumerator PlayerDeath(){
 	
-		playerObj.SetActiveRecursively(false);
-		yield return new WaitForSeconds (3.00f);
-		playerObj.transform.position = new Vector3 (startObj.transform.position.x, startObj.transform.position.y, startObj.transform.position.z);
-		playerObj.SetActiveRecursively(true);
+		if (!isAlertLight) {
+			playerObj.SetActiveRecursively (false);
+			yield return new WaitForSeconds (3.00f);
+			playerObj.transform.position = new Vector3 (startObj.transform.position.x, startObj.transform.position.y, startObj.transform.position.z);
+			playerObj.SetActiveRecursively (true);
+		} else {
+
+			if( !AlertScreen.isAlertScreen ) {
+				AlertScreen.isAlertScreen = true;
+				foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))
+				{
+					// シーン上に存在するオブジェクトならば処理.
+					if (obj.activeInHierarchy)
+					{
+						if( obj.name == "GateWall" ){
+							iTween.MoveBy(obj, iTween.Hash("y", -12.5, "easeType", "easeInOutExpo", "time", .5));
+						}
+					}
+				}
+			}
+		}
 	}
 }  

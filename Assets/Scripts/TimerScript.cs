@@ -74,7 +74,7 @@ public class TimerScript : MonoBehaviour {
 
 		//1秒に1ずつ増やしていく
 		if (!GoalTouchScript.GoalTouch) {
-			if( !LightColorChanger.inCircle ){
+			if( !LightColorChanger.inCircle && !AlertScreen.isAlertScreen ){
 				NowTime += Time.deltaTime;
 				SecTime += Time.deltaTime;
 				GetComponent<Text> ().color = new Color(255, 255, 255);
