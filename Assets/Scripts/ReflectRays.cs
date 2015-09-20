@@ -33,6 +33,7 @@ public class ReflectRays : MonoBehaviour
 
 	private GameObject playerObj;
 	private GameObject startObj;
+	private GameObject burstObj;
 
 	public bool isAlertLight = false;
 
@@ -55,6 +56,7 @@ public class ReflectRays : MonoBehaviour
 		
 		playerObj = GameObject.Find ("Player");
 		startObj  = GameObject.Find ("StartObj");
+		burstObj  = GameObject.Find ("BurstObj");
 	}
 	
 	// Update is called once per frame
@@ -244,6 +246,10 @@ public class ReflectRays : MonoBehaviour
 	IEnumerator PlayerDeath(){
 	
 		if (!isAlertLight) {
+
+			burstObj.SetActiveRecursively (false);
+			burstObj.transform.position = new Vector3 (playerObj.transform.position.x, playerObj.transform.position.y + 0.5f, playerObj.transform.position.z);
+			burstObj.SetActiveRecursively (true);
 			playerObj.SetActiveRecursively (false);
 			yield return new WaitForSeconds (3.00f);
 			playerObj.transform.position = new Vector3 (startObj.transform.position.x, startObj.transform.position.y, startObj.transform.position.z);
