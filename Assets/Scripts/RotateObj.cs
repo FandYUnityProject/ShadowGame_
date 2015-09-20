@@ -3,25 +3,14 @@ using System.Collections;
 
 public class RotateObj : MonoBehaviour {
 
-	public float rotateTime = 1.0f;
-	public int rotateAngle = 45;
+	public  float rotateSpeed = 2.0f;
+	private float nowRotate   = 0.0f; 
 
 	// Use this for initialization
-	void Start () {
-		
-		// コルーチンを実行
-		StartCoroutine ("RotateObject");
-	}
+	void Update () {
 
-	
-	// コルーチン
-	private IEnumerator RotateObject() {
-
-		// コルーチンの処理
-		iTween.RotateTo(gameObject, iTween.Hash("y", rotateAngle, "time", rotateTime));
-		yield return new WaitForSeconds (6.0f);
-		rotateAngle += 90;
-		//if( rotateAngle ==
-		StartCoroutine ("RotateObject");
+		nowRotate += rotateSpeed;
+		if (nowRotate > 360 || nowRotate < -360) {	nowRotate = 0.0f; }
+		this.transform.rotation = Quaternion.Euler(transform.rotation.x, nowRotate, transform.rotation.z);
 	}
 }
