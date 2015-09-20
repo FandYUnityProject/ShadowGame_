@@ -4878,15 +4878,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 128032, guid: 01c550197dc94450194225bc30aa7d1b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 103462, guid: 01c550197dc94450194225bc30aa7d1b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 112126, guid: 01c550197dc94450194225bc30aa7d1b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11437074, guid: 01c550197dc94450194225bc30aa7d1b, type: 2}
       propertyPath: m_Enabled

@@ -79,7 +79,7 @@ public class SaveDataScript : MonoBehaviour
 					}
 				}
 
-				PlayerPrefs.SetString ("Stars", "10");
+				PlayerPrefs.SetString ("Stars", "0");
 			}
 		} else {
 			for (int i=1; i<=5; i++){
