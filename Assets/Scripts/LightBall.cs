@@ -25,7 +25,19 @@ public class LightBall : MonoBehaviour {
 			// 衝突判定を無視するLayerの設定 (true: 無視する)
 			Physics.IgnoreLayerCollision( PlayerLayer, LightBallLayer, true ); 
 
-			AlertScreen.isAlertScreen = true;
+			if( !AlertScreen.isAlertScreen ) {
+				AlertScreen.isAlertScreen = true;
+				foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))
+				{
+					// シーン上に存在するオブジェクトならば処理.
+					if (obj.activeInHierarchy)
+					{
+						if( obj.name == "GateWall" ){
+							iTween.MoveBy(obj, iTween.Hash("y", -12.5, "easeType", "easeInOutExpo", "time", .5));
+						}
+					}
+				}
+			}
 		}
 	}
 
