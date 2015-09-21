@@ -446,8 +446,6 @@ GameObject:
   - 4: {fileID: 464488}
   - 137: {fileID: 13733014}
   - 114: {fileID: 11476594}
-  - 136: {fileID: 13611610}
-  - 136: {fileID: 13655616}
   m_Layer: 0
   m_Name: face
   m_TagString: Body
@@ -748,7 +746,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 452626}
   - 114: {fileID: 11446590}
-  - 135: {fileID: 13550744}
+  - 135: {fileID: 13544390}
   m_Layer: 0
   m_Name: cCamPos
   m_TagString: MainCamera
@@ -1125,8 +1123,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163902}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: -22, y: 0, z: 11}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .600000024, y: 0, z: 12.3400002}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 400032}
@@ -1610,7 +1608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sCam: {fileID: 140790}
-  smooth: 1
+  insmooth: 3
+  outsmooth: 1
   isTouch: 0
   targetY: 0
 --- !u!114 &11468138
@@ -1645,19 +1644,18 @@ MonoBehaviour:
   rayLength: 1.5
   shader1: {fileID: 0}
   shader2: {fileID: 0}
---- !u!136 &13611610
-CapsuleCollider:
+--- !u!135 &13544390
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145266}
+  m_GameObject: {fileID: 176530}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: .00996966008
-  m_Height: .0599999987
-  m_Direction: 1
-  m_Center: {x: -2.0661344e-05, y: .0199999996, z: -.00112738833}
+  serializedVersion: 2
+  m_Radius: .100000001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13615052
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1671,19 +1669,6 @@ CapsuleCollider:
   m_Height: 4.05163336
   m_Direction: 1
   m_Center: {x: 0, y: 2.20000005, z: 0}
---- !u!136 &13655616
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145266}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: .00996966008
-  m_Height: .0599999987
-  m_Direction: 1
-  m_Center: {x: -2.0661344e-05, y: .0199999996, z: -.00112738833}
 --- !u!137 &13708022
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

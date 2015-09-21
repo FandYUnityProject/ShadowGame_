@@ -25,7 +25,7 @@ public class BoundCamera : MonoBehaviour {
 	void CameraMove(){
 		if (isTouch) {
 			transform.position = Vector3.Lerp (transform.position, 
-			                                   sCam.transform.position + sCam.transform.forward + sCam.transform.forward + sCam.transform.forward - sCam.transform.up - sCam.transform.up,
+			                                   sCam.transform.position + sCam.transform.forward + sCam.transform.forward - sCam.transform.up ,
 			                                   Time.deltaTime * insmooth);
 		} else {
 			transform.position = Vector3.Lerp (transform.position, 
@@ -35,7 +35,10 @@ public class BoundCamera : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider coll){
-		isTouch = true;
+		if (coll.gameObject.tag == "Light") {
+		} else {
+			isTouch = true;
+		}
 	}
 
 	void OnTriggerExit(Collider coll){
