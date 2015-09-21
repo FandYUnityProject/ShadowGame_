@@ -801,6 +801,10 @@ Prefab:
       propertyPath: outsmooth
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11468138, guid: f16986e89b2508747984c94a786b3141, type: 2}
+      propertyPath: forwardSpeed
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 13611610, guid: f16986e89b2508747984c94a786b3141, type: 2}
     - {fileID: 13655616, guid: f16986e89b2508747984c94a786b3141, type: 2}
