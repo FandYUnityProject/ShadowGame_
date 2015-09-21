@@ -20,8 +20,9 @@ public class PingPongRotateLight : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		// 往復回転
-		this.transform.rotation = Quaternion.Euler(prevObjRotation.x, prevObjRotation.y + Mathf.Sin( ( Time.time + startRotate ) * speed ) * offset, prevObjRotation.z);
+		this.transform.rotation = Quaternion.Euler(prevObjRotation.x + Mathf.Sin( ( Time.time + startRotate ) * speed ) * offset, 
+		                                           prevObjRotation.y, //+ Mathf.Sin( ( Time.time + startRotate ) * speed ) * offset, 
+		                                           prevObjRotation.z);
 	}
 }
