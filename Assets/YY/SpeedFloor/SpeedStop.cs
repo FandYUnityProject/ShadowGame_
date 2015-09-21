@@ -26,7 +26,7 @@ public class SpeedStop : MonoBehaviour {
 		if (coll.gameObject.name == "StopArea") {
 			Debug.Log("StopArea");
 			this.gameObject.GetComponent<Rigidbody> ().velocity = Vector3.zero;
-			Destroy(coll);
+			//Destroy(coll);
 		}
 	}
 }
