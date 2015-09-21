@@ -44891,7 +44891,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STAGE:10       Stage Title Text
+  m_Text: STAGE:10       Beyond the blue sky!!
 --- !u!222 &1742811349
 CanvasRenderer:
   m_ObjectHideFlags: 0
