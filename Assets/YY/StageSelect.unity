@@ -567,7 +567,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &29505784
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,7 +3604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .329411775, g: .329411775, b: .329411775, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 1c9f6ef1fe72647fcaa8cebb209eb19d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd7117c0fd94748c899c0b983146c339, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12901,7 +12901,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!225 &470043792
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -30791,7 +30791,7 @@ RectTransform:
   - {fileID: 562697364}
   - {fileID: 151920749}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -32422,6 +32422,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1189860050}
+--- !u!1 &1199589374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1199589376}
+  - 114: {fileID: 1199589375}
+  m_Layer: 0
+  m_Name: FadeInScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1199589375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1199589374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570aadab94d134e84a30348e47d0cd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTexture: {fileID: 2800000, guid: a430051130c504846af1cac95b32aa9e, type: 3}
+--- !u!4 &1199589376
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1199589374}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.36956644, y: 2.43791485, z: 1.31247687}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1 &1205879816
 GameObject:
   m_ObjectHideFlags: 0
@@ -38085,7 +38125,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STAGE:06       Stage Title Text
+  m_Text: STAGE:06       Bank Athletic
 --- !u!222 &1449065323
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41659,7 +41699,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1638246396
 GameObject:
   m_ObjectHideFlags: 0
@@ -52684,7 +52724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 1c9f6ef1fe72647fcaa8cebb209eb19d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd7117c0fd94748c899c0b983146c339, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
