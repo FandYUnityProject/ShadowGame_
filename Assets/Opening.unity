@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTexture01: {fileID: 2800000, guid: 3f0e8d44901774a13a5624ad283476b2, type: 3}
-  fadeTexture02: {fileID: 2800000, guid: 5247cffbcadff45028efdac10d61bebf, type: 3}
+  fadeTexture02: {fileID: 2800000, guid: ebf1f23bde0c544559533a792262cb37, type: 3}
 --- !u!4 &858820594
 Transform:
   m_ObjectHideFlags: 0
