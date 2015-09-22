@@ -8881,7 +8881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 1c9f6ef1fe72647fcaa8cebb209eb19d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9483e99c6c5794e82bb337ccc535c55c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23321,7 +23321,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STAGE:08       Stage Title Text
+  m_Text: STAGE:08       Hopping Athletic
 --- !u!222 &840652255
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -51876,7 +51876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .329411775, g: .329411775, b: .329411775, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 1c9f6ef1fe72647fcaa8cebb209eb19d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9483e99c6c5794e82bb337ccc535c55c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
