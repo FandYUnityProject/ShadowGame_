@@ -27,6 +27,20 @@ public class ArrowPush : MonoBehaviour {
 				pos = stagePanel.GetComponent<RectTransform> ().anchoredPosition;
 				MoveStagePanel (-(selectStageNumber-1) * 648);
 			}
+
+			// 体験版
+			if (this.gameObject.name == "ArrowRight" && selectStageNumber != 10) {
+				
+				selectStageNumber++;
+				StagePanelSlider.slider.value = Mathf.RoundToInt(StagePanelSlider.slider.value+1);
+				isStagePanelMove = true;
+				
+				pos = stagePanel.GetComponent<RectTransform> ().anchoredPosition;
+				MoveStagePanel (-(selectStageNumber-1) * 648);
+			}
+
+			/*
+			// 製品版
 			if (this.gameObject.name == "ArrowRight" && selectStageNumber != 30) {
 
 				selectStageNumber++;
@@ -36,6 +50,7 @@ public class ArrowPush : MonoBehaviour {
 				pos = stagePanel.GetComponent<RectTransform> ().anchoredPosition;
 				MoveStagePanel (-(selectStageNumber-1) * 648);
 			}
+			*/
 		}
 	}
 
