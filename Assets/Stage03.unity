@@ -623,7 +623,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11495932, guid: 7eb322f3d39c6ec41b78f26471a30cae, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100614, guid: 7eb322f3d39c6ec41b78f26471a30cae, type: 2}
       propertyPath: m_TagString
@@ -1043,7 +1043,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11495932, guid: 7eb322f3d39c6ec41b78f26471a30cae, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100614, guid: 7eb322f3d39c6ec41b78f26471a30cae, type: 2}
       propertyPath: m_TagString
@@ -1818,7 +1818,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11495932, guid: 7eb322f3d39c6ec41b78f26471a30cae, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100614, guid: 7eb322f3d39c6ec41b78f26471a30cae, type: 2}
       propertyPath: m_TagString
@@ -2364,7 +2364,7 @@ GameObject:
   - 114: {fileID: 1421193298}
   m_Layer: 0
   m_Name: DeathAreaMark
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2953,7 +2953,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11495932, guid: 7eb322f3d39c6ec41b78f26471a30cae, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100614, guid: 7eb322f3d39c6ec41b78f26471a30cae, type: 2}
       propertyPath: m_TagString
@@ -3198,15 +3198,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 128032, guid: 01c550197dc94450194225bc30aa7d1b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 103462, guid: 01c550197dc94450194225bc30aa7d1b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 112126, guid: 01c550197dc94450194225bc30aa7d1b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11437074, guid: 01c550197dc94450194225bc30aa7d1b, type: 2}
       propertyPath: m_Enabled
