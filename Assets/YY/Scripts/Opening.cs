@@ -41,19 +41,19 @@ public class Opening : MonoBehaviour {
 	void Update(){
 		if (Input.GetMouseButton (0)) {
 			if(NowSceane == 1){
-				iTween.CameraFadeTo(iTween.Hash("amount",0.0f,"time",1.5f, "delay", 0.5f,"oncomplete","OnStart02","oncompletetarget",this.gameObject));
+				iTween.CameraFadeTo(iTween.Hash("amount",0.0f,"time",1.5f, "delay", 0.0f,"oncomplete","OnStart02","oncompletetarget",this.gameObject));
 				Debug.Log ("LeftClick01");
 			} else{
-				iTween.CameraFadeTo(iTween.Hash("amount",0.0f,"time",1.5f, "delay", 0.5f,"oncomplete","GoToStageSelect","oncompletetarget",this.gameObject));
+				iTween.CameraFadeTo(iTween.Hash("amount",0.0f,"time",1.5f, "delay", 0.0f,"oncomplete","GoToStageSelect","oncompletetarget",this.gameObject));
 				Debug.Log ("LeftClick02");
 			}
 		}
 		if (Input.GetKeyDown(KeyCode.Return)) {
 			if(NowSceane == 1){
-				iTween.CameraFadeTo(iTween.Hash("amount",0.0f,"time",1.5f, "delay", 0.5f,"oncomplete","OnStart02","oncompletetarget",this.gameObject));
+				iTween.CameraFadeTo(iTween.Hash("amount",0.0f,"time",1.5f, "delay", 0.0f,"oncomplete","OnStart02","oncompletetarget",this.gameObject));
 				Debug.Log ("Enter01");
 			} else{
-				iTween.CameraFadeTo(iTween.Hash("amount",0.0f,"time",1.5f, "delay", 0.5f,"oncomplete","GoToStageSelect","oncompletetarget",this.gameObject));
+				iTween.CameraFadeTo(iTween.Hash("amount",0.0f,"time",1.5f, "delay", 0.0f,"oncomplete","GoToStageSelect","oncompletetarget",this.gameObject));
 				Debug.Log ("Enter02");
 			}
 		}
