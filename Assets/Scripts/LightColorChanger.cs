@@ -32,6 +32,9 @@ public class LightColorChanger : MonoBehaviour {
 			inCircle = true;
 			Debug.Log(inCircle);
 		}
+		if (coll.gameObject.tag == "Cube") {
+			Debug.Log("IN");
+		}
 	}
 
 	void OnTriggerStay(Collider coll){
@@ -43,12 +46,18 @@ public class LightColorChanger : MonoBehaviour {
 				inCircle = true;
 			}
 		}
+		if (coll.gameObject.tag == "Cube") {
+			Debug.Log("STAY");
+		}
 	}
 
 	void OnTriggerExit(Collider coll){
 		if (coll.gameObject.tag == "Body") {
 			inCircle = false;
 			Debug.Log(inCircle);
+		}
+		if (coll.gameObject.tag == "Cube") {
+			Debug.Log("OUT");
 		}
 	}
 }
