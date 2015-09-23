@@ -41,10 +41,12 @@ public class GoStageScene : MonoBehaviour {
 		for(int i=1; i<=30; i++){ 
 			if( i>=1 && i<=9 ){ 
 				if( this.gameObject.name == "StageImage0" + i ){
+					NowStageNumber.StageNumber = i;
 					async = Application.LoadLevelAsync("Stage0" + i);
 				}
 			} else {
 				if( this.gameObject.name == "StageImage" + i ){
+					NowStageNumber.StageNumber = i;
 					async = Application.LoadLevelAsync("Stage" + i);
 				}
 			}

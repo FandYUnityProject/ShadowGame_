@@ -12,6 +12,12 @@ public class ArrowPush : MonoBehaviour {
 	void Start(){
 		// uGUI用のpositionを取得
 		pos = stagePanel.GetComponent<RectTransform> ().anchoredPosition;
+
+		Debug.Log ("StageNumber: " + NowStageNumber.StageNumber);
+		selectStageNumber = NowStageNumber.StageNumber;
+
+		pos.x = -(selectStageNumber) * 648;
+		stagePanel.GetComponent<RectTransform> ().anchoredPosition = pos;
 	}
 
 	// ボタンをクリックした時の処理

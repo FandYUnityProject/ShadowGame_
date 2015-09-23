@@ -11,7 +11,9 @@ public class StagePanelSlider : MonoBehaviour {
 
 	void Start () {
 		slider = this.GetComponent<Slider>();
-		slider.value = 1;
+
+		//slider.value = 1;
+		slider.value = NowStageNumber.StageNumber;
 
 		// uGUI用のpositionを取得
 		pos = stagePanel.GetComponent<RectTransform> ().anchoredPosition;

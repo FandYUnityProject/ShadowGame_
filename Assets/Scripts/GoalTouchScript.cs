@@ -15,8 +15,11 @@ public class GoalTouchScript : MonoBehaviour {
 	public Image ClearStarImage;
 	public Image GetStarImage;
 
+	private GameObject ReturnObj;
+
 	void Start(){
 		GoalTouch = false;
+		ReturnObj = GameObject.Find ("ReturnButton");
 	}
 
 	void OnCollisionEnter(Collision coll){
@@ -156,6 +159,7 @@ public class GoalTouchScript : MonoBehaviour {
 	private IEnumerator GoToStageSelect() {
 
 		TimerPanel.transform.position = new Vector3 (-100, -100, 0);
+		ReturnObj.transform.position = new Vector3 (-100, -100, 0);
 
 		// ゲームクリアウィンドウの表示
 		ClearTimeText.GetComponent<Text>().text = TimerText.GetComponent<Text>().text;
