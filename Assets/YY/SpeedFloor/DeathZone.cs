@@ -6,6 +6,7 @@ public class DeathZone : MonoBehaviour {
 	private GameObject playerObj;
 	private GameObject startObj;
 	private GameObject burstObj;
+    public AudioSource av;
 	
 	void Start(){
 		playerObj = GameObject.Find ("Player");
@@ -27,6 +28,7 @@ public class DeathZone : MonoBehaviour {
 		burstObj.SetActiveRecursively (true);
 		playerObj.SetActiveRecursively (false);
 		playerObj.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+        av.Play();
 		yield return new WaitForSeconds (3.00f);
 		playerObj.transform.position = new Vector3 (startObj.transform.position.x, startObj.transform.position.y, startObj.transform.position.z);
 		playerObj.GetComponent<Rigidbody> ().velocity = Vector3.zero;
