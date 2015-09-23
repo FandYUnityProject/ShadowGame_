@@ -1367,18 +1367,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 100582, guid: 5be75e163aca3744180a36857413c8e2, type: 2}
-      propertyPath: m_Name
-      value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 2071896, guid: 5be75e163aca3744180a36857413c8e2, type: 2}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8266246, guid: 5be75e163aca3744180a36857413c8e2, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5be75e163aca3744180a36857413c8e2, type: 2}
   m_IsPrefabParent: 0
