@@ -24,25 +24,37 @@ public class ArrowPush : MonoBehaviour {
 
 		// *** JoyStick & Keyboard *** //
 		// ロック画面解除/不可能画面表示中でなければ
-		if (!GoStageScene.isSelectLockStage) {
+		if (!GoStageScene.isSelectLockStage && !GoStageScene.isCloseUnlockMenu) {
+
 			if (Input.GetAxis ("Horizontal") < 0 && selectStageNumber != 1 && isStagePanelMove == false) {
+				
+				Debug.Log("selectStageNumber Before" + selectStageNumber);
+
 				selectStageNumber--;
 				StagePanelSlider.slider.value = Mathf.RoundToInt (StagePanelSlider.slider.value - 1);
 				isStagePanelMove = true;
 			
 				pos = stagePanel.GetComponent<RectTransform> ().anchoredPosition;
 				MoveStagePanel (-(selectStageNumber - 1) * 648);
+				
+				Debug.Log("selectStageNumber After" + selectStageNumber);
 			}
 
 			// 体験版
 			if (Input.GetAxis ("Horizontal") > 0 && selectStageNumber != 10 && isStagePanelMove == false) {
+				
+				Debug.Log("selectStageNumber Before" + selectStageNumber);
+
 				selectStageNumber++;
 				StagePanelSlider.slider.value = Mathf.RoundToInt (StagePanelSlider.slider.value + 1);
 				isStagePanelMove = true;
 			
 				pos = stagePanel.GetComponent<RectTransform> ().anchoredPosition;
 				MoveStagePanel (-(selectStageNumber - 1) * 648);
+
+				Debug.Log("selectStageNumber After" + selectStageNumber);
 			}
+
 		}
 	}
 

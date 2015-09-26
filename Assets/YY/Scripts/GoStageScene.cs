@@ -128,6 +128,8 @@ public class GoStageScene : MonoBehaviour {
 				// ステージロックを解除していれば各ステージに移動
 				if ((PlayerPrefs.GetInt ("Stage0" + ArrowPush.selectStageNumber + "UnLock") == 1)) {
 
+					Debug.Log("ArrowPush.selectStageNumber: " + ArrowPush.selectStageNumber );
+
 					// ステージ選択フラグを立てる
 					isStageSelect = true;
 
@@ -220,7 +222,7 @@ public class GoStageScene : MonoBehaviour {
 	// ボタンをクリックした時の処理
 	public void OnClick() {
 
-		if (!isStageSelect) {
+		if (!isStageSelect && !Input.GetButtonDown("Submit")) {
 			
 			isStageSelect = true;
 

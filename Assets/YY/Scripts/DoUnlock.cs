@@ -24,7 +24,6 @@ public class DoUnlock : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		// lockStageSelect = GetComponent<LockStageSelect> ();
 		ArrowRight = GameObject.Find ("ArrowRight");
 		ArrowLeft = GameObject.Find ("ArrowLeft");
 		StageSlider = GameObject.Find ("StageSlider");
@@ -51,7 +50,9 @@ public class DoUnlock : MonoBehaviour {
 
 	// Joystickでクリックした時の処理
 	public void OnClickJoystick(int NeedUnlockStars) {
-		
+
+		Debug.Log ("stageObjName: " + stageObjName);
+
 		// ステージ解禁情報をセーブする
 		PlayerPrefs.SetInt (stageObjName, 1);
 		
