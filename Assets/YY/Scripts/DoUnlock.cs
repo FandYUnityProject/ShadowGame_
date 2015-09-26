@@ -48,9 +48,26 @@ public class DoUnlock : MonoBehaviour {
 		iTween.ScaleTo (unlockMenu, iTween.Hash("time", 0.7f, "x", 0, "y", 0, "z", 0,"easeType", "easeInBack"));
 		StartCoroutine ("NotPushButton");
 	}
+
+	// Joystickでクリックした時の処理
+	public void OnClickJoystick(int NeedUnlockStars) {
+		
+		// ステージ解禁情報をセーブする
+		PlayerPrefs.SetInt (stageObjName, 1);
+		
+		// 必要な星の数だけ所持星数を減らす
+		resultStarNumber = int.Parse(PlayerPrefs.GetString ("Stars"));
+		resultStarNumber = resultStarNumber - NeedUnlockStars;
+		PlayerPrefs.SetString ("Stars", resultStarNumber.ToString());
+		starCountObj.GetComponent<Text>().text = PlayerPrefs.GetString ("Stars");
+		
+		// 解禁画面を閉じるアニメーションを再生
+		iTween.ScaleTo (unlockMenu, iTween.Hash("time", 0.7f, "x", 0, "y", 0, "z", 0,"easeType", "easeInBack"));
+		StartCoroutine ("NotPushButton");
+	}
 	
 	// コルーチン
-	private IEnumerator NotPushButton() {
+	public IEnumerator NotPushButton() {
 		// コルーチンの処理
 
 		// ボタンを非活性にする
@@ -124,5 +141,10 @@ public class DoUnlock : MonoBehaviour {
 		ArrowRight.SetActiveRecursively(true);
 		ArrowLeft.SetActiveRecursively(true);
 		StageSlider.SetActiveRecursively(true);
+		
+		
+		GoStageScene.isCloseUnlockMenu = false;
+		GoStageScene.isSelectLockStage = false;
+		Debug.Log("ReturnOK");
 	}
 }

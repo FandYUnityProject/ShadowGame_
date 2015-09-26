@@ -19,11 +19,38 @@ public class ArrowPush : MonoBehaviour {
 		pos.x = -(selectStageNumber) * 648;
 		stagePanel.GetComponent<RectTransform> ().anchoredPosition = pos;
 	}
+	
+	void Update(){
+
+		// *** JoyStick & Keyboard *** //
+		// ロック画面解除/不可能画面表示中でなければ
+		if (!GoStageScene.isSelectLockStage) {
+			if (Input.GetAxis ("Horizontal") < 0 && selectStageNumber != 1 && isStagePanelMove == false) {
+				selectStageNumber--;
+				StagePanelSlider.slider.value = Mathf.RoundToInt (StagePanelSlider.slider.value - 1);
+				isStagePanelMove = true;
+			
+				pos = stagePanel.GetComponent<RectTransform> ().anchoredPosition;
+				MoveStagePanel (-(selectStageNumber - 1) * 648);
+			}
+
+			// 体験版
+			if (Input.GetAxis ("Horizontal") > 0 && selectStageNumber != 10 && isStagePanelMove == false) {
+				selectStageNumber++;
+				StagePanelSlider.slider.value = Mathf.RoundToInt (StagePanelSlider.slider.value + 1);
+				isStagePanelMove = true;
+			
+				pos = stagePanel.GetComponent<RectTransform> ().anchoredPosition;
+				MoveStagePanel (-(selectStageNumber - 1) * 648);
+			}
+		}
+	}
 
 	// ボタンをクリックした時の処理
 	public void OnClick() {
 
-		if (!isStagePanelMove) {
+		// ステージ選択画面がスライド中でない、かつロック画面解除/不可能画面表示中でなければ
+		if (!isStagePanelMove && !GoStageScene.isSelectLockStage && !Input.GetButtonDown ("Submit")) {
 			if (this.gameObject.name == "ArrowLeft" && selectStageNumber != 1) {
 
 				selectStageNumber--;

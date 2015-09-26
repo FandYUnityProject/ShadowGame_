@@ -10,4 +10,10 @@ public class ReturnStage : MonoBehaviour {
 	public void OnClick() {
 		Application.LoadLevel ("StageSelect");
 	}
+
+	void Update(){
+		if(Input.GetButtonDown("Cancel")){
+			Application.LoadLevel ("StageSelect");
+		}
+	}
 }

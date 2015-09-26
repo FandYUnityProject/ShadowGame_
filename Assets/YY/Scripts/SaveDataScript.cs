@@ -30,7 +30,6 @@ public class SaveDataScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-
 		// 解禁されたステージオブジェクトを保存する
 		for (int i=1; i<=30; i++) {
 			if (i >= 1 && i <= 9) {
