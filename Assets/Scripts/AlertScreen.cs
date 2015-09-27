@@ -14,6 +14,7 @@ public class AlertScreen : MonoBehaviour {
 	void Start () {
 		audioSource = gameObject.GetComponent<AudioSource>();
 		audioSource.clip = AlertSound;
+		isAlertScreen = false;
 	}
 	
 	// Update is called once per frame
