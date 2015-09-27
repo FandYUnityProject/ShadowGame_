@@ -20,7 +20,7 @@ public class SkyBoxRotateChange : MonoBehaviour {
 	
 		// スカイボックスをセットし、shaderのBlendの値を0(朝）に設定。
 		RenderSettings.skybox = SkyBox;
-		SkyBox.SetFloat("_Blend", 0.0f);
+		SkyBox.SetFloat("_Blend", 1.0f);
 	}
 	
 	// Update is called once per frame
@@ -93,7 +93,7 @@ public class SkyBoxRotateChange : MonoBehaviour {
 		if (coll.gameObject.name == "Player") {
 
 			// 朝から夜に変化
-			iTween.ValueTo(gameObject, iTween.Hash("from", 0.0f, "to", 1.0f, "time", duration, "onupdate", "UpdateSky"));
+			iTween.ValueTo(gameObject, iTween.Hash("from", 3.0f, "to", 0.0f, "time", duration, "onupdate", "UpdateSky"));
 		}
 	}
 
@@ -102,7 +102,7 @@ public class SkyBoxRotateChange : MonoBehaviour {
 		if (coll.gameObject.name == "Player") {
 
 			// 夜から朝に変化
-			iTween.ValueTo(gameObject, iTween.Hash("from", 1.0f, "to", 0.0f, "time", duration, "onupdate", "UpdateSky"));
+			//iTween.ValueTo(gameObject, iTween.Hash("from", 0.0f, "to", 1.0f, "time", duration, "onupdate", "UpdateSky"));
 		}
 	}
 }
