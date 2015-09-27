@@ -22,6 +22,8 @@ public class DoUnlock : MonoBehaviour {
 	private GameObject ArrowLeft;
 	private GameObject StageSlider;
 	
+	public AudioClip SelectSound;
+
 	// Use this for initialization
 	void Start () {
 		ArrowRight = GameObject.Find ("ArrowRight");
@@ -70,6 +72,8 @@ public class DoUnlock : MonoBehaviour {
 	// コルーチン
 	public IEnumerator NotPushButton() {
 		// コルーチンの処理
+		
+		GetComponent<AudioSource>().PlayOneShot(SelectSound);
 
 		// ボタンを非活性にする
 		this.GetComponent<UnityEngine.UI.Button>().enabled = false;

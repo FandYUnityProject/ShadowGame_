@@ -21,6 +21,8 @@ public class GoStageScene : MonoBehaviour {
 	public static bool isSelectLockStage;
 	public static bool isCloseUnlockMenu;
 
+	public AudioClip SelectSound;
+
 	// 必要な星の数（体験版）
 	public static int[] stageObjUnlockStar = 
 	new int[] {-1, 0, 0, 0, 0, 0, 3, 4, 5, 6
@@ -114,6 +116,8 @@ public class GoStageScene : MonoBehaviour {
 
 			// ロック解除不可能画面
 			if( nowLockMenu == 2 && !isCloseUnlockMenu ){
+				
+				GetComponent<AudioSource>().PlayOneShot(SelectSound);
 				isCloseUnlockMenu = true;
 				Debug.Log("Return");
 				iTween.ScaleTo (returnUnlockMenu, iTween.Hash("time", 0.7f, "x", 0, "y", 0, "z", 0,"easeType", "easeInBack","oncomplete", "CompletedCloseUnlockMenu", "oncompletetarget", gameObject));
@@ -142,6 +146,8 @@ public class GoStageScene : MonoBehaviour {
 
 					// ロック画面表示フラグを立てる
 					isSelectLockStage = true;
+					
+					GetComponent<AudioSource>().PlayOneShot(SelectSound);
 
 					// ステージ解禁に必要な星の数が、現在の星の所持数より少ないかチェック
 					if (stageObjUnlockStar[ArrowPush.selectStageNumber] <= int.Parse (PlayerPrefs.GetString ("Stars"))) {
@@ -184,7 +190,9 @@ public class GoStageScene : MonoBehaviour {
 					// 各ステージに移動
 					StartCoroutine ("GoToStageKey");
 				} else {
-					
+
+					GetComponent<AudioSource>().PlayOneShot(SelectSound);
+
 					// ロック画面表示フラグを立てる
 					isSelectLockStage = true;
 					
@@ -244,6 +252,8 @@ public class GoStageScene : MonoBehaviour {
 	}
 
 	private IEnumerator GoToStage() {
+		
+		GetComponent<AudioSource>().PlayOneShot(SelectSound);
 
 		Debug.Log ("SceneMove:" + this.gameObject.name );
 		
@@ -285,18 +295,20 @@ public class GoStageScene : MonoBehaviour {
 
 	// 各ステージに移動
 	private IEnumerator GoToStageKey() {
-		
-		Debug.Log ("SceneMove:" + this.gameObject.name );
 
-		yield return new WaitForSeconds (1.0f);
+		Debug.Log ("SceneMove:" + this.gameObject.name );
 
 		if( ArrowPush.selectStageNumber >=1 && ArrowPush.selectStageNumber<=9 ){ 
 			if( this.gameObject.name == "StageImage0" + ArrowPush.selectStageNumber ){
+				GetComponent<AudioSource>().PlayOneShot(SelectSound);
+				yield return new WaitForSeconds (1.0f);
 				NowStageNumber.StageNumber = ArrowPush.selectStageNumber;
 				Application.LoadLevel("Stage0" + ArrowPush.selectStageNumber);
 			}
 		} else {
 			if( this.gameObject.name == "StageImage" + ArrowPush.selectStageNumber ){
+				GetComponent<AudioSource>().PlayOneShot(SelectSound);
+				yield return new WaitForSeconds (1.0f);
 				NowStageNumber.StageNumber = ArrowPush.selectStageNumber;
 				Application.LoadLevel("Stage" + ArrowPush.selectStageNumber);
 			}

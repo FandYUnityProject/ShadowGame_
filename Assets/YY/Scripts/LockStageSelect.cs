@@ -11,6 +11,8 @@ public class LockStageSelect : MonoBehaviour {
 	public GameObject returnUnlockMenu;
 	public GameObject unlockText;
 	public GameObject returnUnlockText;
+	
+	public AudioClip SelectSound;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +22,8 @@ public class LockStageSelect : MonoBehaviour {
 	
 	// ボタンをクリックした時の処理
 	public void OnClick() {
+		
+		GetComponent<AudioSource>().PlayOneShot(SelectSound);
 
 		if (!Input.GetButtonDown ("Submit")) { 
 			// 解禁するステージ名、必要な星の数を代入。

@@ -17,6 +17,8 @@ public class GoalTouchScript : MonoBehaviour {
 
 	private GameObject ReturnObj;
 
+	public AudioClip GoalSound;
+
 	void Start(){
 		GoalTouch = false;
 		ReturnObj = GameObject.Find ("ReturnButton");
@@ -25,6 +27,8 @@ public class GoalTouchScript : MonoBehaviour {
 	void OnCollisionEnter(Collision coll){
 		if (!GoalTouch) {
 			if (coll.gameObject.name == "Player") {
+
+				GetComponent<AudioSource>().PlayOneShot(GoalSound);
 
 				GoalTouch = true;
 

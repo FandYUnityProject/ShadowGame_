@@ -37,6 +37,8 @@ public class ReflectRays : MonoBehaviour
 
 	public bool isAlertLight = false;
 
+	public AudioClip BurstSound;
+
 
 	void Awake ()
 	{  
@@ -251,6 +253,7 @@ public class ReflectRays : MonoBehaviour
 			burstObj.transform.position = new Vector3 (playerObj.transform.position.x, playerObj.transform.position.y + 0.5f, playerObj.transform.position.z);
 			burstObj.SetActiveRecursively (true);
 			playerObj.SetActiveRecursively (false);
+			GetComponent<AudioSource>().PlayOneShot(BurstSound);
 			yield return new WaitForSeconds (3.00f);
 			playerObj.transform.position = new Vector3 (startObj.transform.position.x, startObj.transform.position.y, startObj.transform.position.z);
 			playerObj.SetActiveRecursively (true);

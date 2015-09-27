@@ -8,6 +8,8 @@ public class ArrowPush : MonoBehaviour {
 	public static bool isStagePanelMove = false;
 
 	public static int selectStageNumber = 1;
+	
+	public AudioClip SelectSound;
 
 	void Start(){
 		// uGUI用のpositionを取得
@@ -28,6 +30,8 @@ public class ArrowPush : MonoBehaviour {
 
 			if (Input.GetAxis ("Horizontal") < 0 && selectStageNumber != 1 && isStagePanelMove == false) {
 				
+				GetComponent<AudioSource>().PlayOneShot(SelectSound);
+				
 				Debug.Log("selectStageNumber Before" + selectStageNumber);
 
 				selectStageNumber--;
@@ -42,6 +46,8 @@ public class ArrowPush : MonoBehaviour {
 
 			// 体験版
 			if (Input.GetAxis ("Horizontal") > 0 && selectStageNumber != 10 && isStagePanelMove == false) {
+				
+				GetComponent<AudioSource>().PlayOneShot(SelectSound);
 				
 				Debug.Log("selectStageNumber Before" + selectStageNumber);
 
@@ -64,6 +70,8 @@ public class ArrowPush : MonoBehaviour {
 		// ステージ選択画面がスライド中でない、かつロック画面解除/不可能画面表示中でなければ
 		if (!isStagePanelMove && !GoStageScene.isSelectLockStage && !Input.GetButtonDown ("Submit")) {
 			if (this.gameObject.name == "ArrowLeft" && selectStageNumber != 1) {
+				
+				GetComponent<AudioSource>().PlayOneShot(SelectSound);
 
 				selectStageNumber--;
 				StagePanelSlider.slider.value = Mathf.RoundToInt(StagePanelSlider.slider.value-1);
@@ -76,6 +84,8 @@ public class ArrowPush : MonoBehaviour {
 			// 体験版
 			if (this.gameObject.name == "ArrowRight" && selectStageNumber != 10) {
 				
+				GetComponent<AudioSource>().PlayOneShot(SelectSound);
+
 				selectStageNumber++;
 				StagePanelSlider.slider.value = Mathf.RoundToInt(StagePanelSlider.slider.value+1);
 				isStagePanelMove = true;
