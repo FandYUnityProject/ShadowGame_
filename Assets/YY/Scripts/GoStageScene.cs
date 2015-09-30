@@ -20,6 +20,8 @@ public class GoStageScene : MonoBehaviour {
 
 	public static bool isSelectLockStage;
 	public static bool isCloseUnlockMenu;
+	
+	private GameObject StarImage;
 
 	public AudioClip SelectSound;
 
@@ -40,6 +42,8 @@ public class GoStageScene : MonoBehaviour {
 	*/
 
 	void Start(){
+		
+		StarImage = GameObject.Find ("StarImage");
 
 		loading = GameObject.Find ("Loading");
 		//画像(Texture2D)がない場合も必ず必要！
@@ -151,20 +155,67 @@ public class GoStageScene : MonoBehaviour {
 
 					// ステージ解禁に必要な星の数が、現在の星の所持数より少ないかチェック
 					if (stageObjUnlockStar[ArrowPush.selectStageNumber] <= int.Parse (PlayerPrefs.GetString ("Stars"))) {
+
+						if( ArrowPush.selectStageNumber == 10
+						   && PlayerPrefs.GetInt ("Stage01UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage02UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage03UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage04UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage05UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage06UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage07UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage08UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage09UnLock") == 1){
+							
+							// 必要数以上に星を持っていた場合
+							Debug.Log ("UnlockScreen");
+							// “使用しない”を選択状態にする
+							Button doUnlockButton = doNotUnlock.GetComponent<Button> ();
+							doUnlockButton.Select ();
+							isUnlock = false;
+
+							iTween.ScaleTo (unlockMenu, iTween.Hash ("time", 0.5f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad"));
+							unlockText.GetComponent<Text> ().text = "このステージで遊ぶには 　 が" + stageObjUnlockStar[ArrowPush.selectStageNumber] + "つ必要です。";
+							
+							// ロック解除選択画面中
+							nowLockMenu = 1;
+						} else if(ArrowPush.selectStageNumber == 10
+						         && (PlayerPrefs.GetInt ("Stage01UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage02UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage03UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage04UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage05UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage06UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage07UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage08UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage09UnLock") != 1)){
+
+							// 必要数以上に星を持っていなかった場合
+							Debug.Log ("ReturnUnlockScreen");
+							StarImage.SetActiveRecursively(false);
+							iTween.ScaleTo (returnUnlockMenu, iTween.Hash ("time", 0.5f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad"));
+							returnUnlockText.GetComponent<Text> ().text = "このステージで遊ぶには、他のステージ全てを\nクリアする必要があります。";
+							
+							// ロック解除選択画面中
+							nowLockMenu = 2;
+						} else {
+							// 必要数以上に星を持っていた場合
+							Debug.Log ("UnlockScreen");
+							// “使用しない”を選択状態にする
+							Button doUnlockButton = doNotUnlock.GetComponent<Button> ();
+							doUnlockButton.Select ();
+							isUnlock = false;
+
+							iTween.ScaleTo (unlockMenu, iTween.Hash ("time", 0.5f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad"));
+							unlockText.GetComponent<Text> ().text = "このステージで遊ぶには 　 が" + stageObjUnlockStar[ArrowPush.selectStageNumber] + "つ必要です。";
+							
+							// ロック解除選択画面中
+							nowLockMenu = 1;
+						}
 						
-						// 必要数以上に星を持っていた場合
-						Debug.Log("UnlockScreen");
+						//iTween.ScaleTo (unlockMenu, iTween.Hash ("time", 0.5f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad"));
+						//unlockText.GetComponent<Text>().text = "このステージで遊ぶには 　 が" + stageObjUnlockStar[ArrowPush.selectStageNumber] +"つ必要です。";
 
-						// “使用しない”を選択状態にする
-						Button doUnlockButton = doNotUnlock.GetComponent<Button> ();
-						doUnlockButton.Select ();
-						isUnlock = false;
-
-						iTween.ScaleTo (unlockMenu, iTween.Hash ("time", 0.5f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad"));
-						unlockText.GetComponent<Text>().text = "このステージで遊ぶには 　 が" + stageObjUnlockStar[ArrowPush.selectStageNumber] +"つ必要です。";
-
-						// ロック解除選択画面中
-						nowLockMenu = 1;
 					} else {
 						
 						// 必要数以上に星を持っていなかった場合
@@ -199,19 +250,62 @@ public class GoStageScene : MonoBehaviour {
 					// ステージ解禁に必要な星の数が、現在の星の所持数より少ないかチェック
 					if (stageObjUnlockStar[ArrowPush.selectStageNumber] <= int.Parse (PlayerPrefs.GetString ("Stars"))) {
 						
-						// 必要数以上に星を持っていた場合
-						Debug.Log("UnlockScreen");
-						
-						// “使用しない”を選択状態にする
-						Button doUnlockButton = doNotUnlock.GetComponent<Button> ();
-						doUnlockButton.Select ();
-						isUnlock = false;
-						
-						iTween.ScaleTo (unlockMenu, iTween.Hash ("time", 0.5f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad"));
-						unlockText.GetComponent<Text>().text = "このステージで遊ぶには 　 が" + stageObjUnlockStar[ArrowPush.selectStageNumber] +"つ必要です。";
-						
-						// ロック解除選択画面中
-						nowLockMenu = 1;
+						if( ArrowPush.selectStageNumber == 10
+						   && PlayerPrefs.GetInt ("Stage01UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage02UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage03UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage04UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage05UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage06UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage07UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage08UnLock") == 1
+						   && PlayerPrefs.GetInt ("Stage09UnLock") == 1){
+							
+							// 必要数以上に星を持っていた場合
+							Debug.Log ("UnlockScreen");
+							// “使用しない”を選択状態にする
+							Button doUnlockButton = doNotUnlock.GetComponent<Button> ();
+							doUnlockButton.Select ();
+							isUnlock = false;
+							
+							iTween.ScaleTo (unlockMenu, iTween.Hash ("time", 0.5f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad"));
+							unlockText.GetComponent<Text> ().text = "このステージで遊ぶには 　 が" + stageObjUnlockStar[ArrowPush.selectStageNumber] + "つ必要です。";
+							
+							// ロック解除選択画面中
+							nowLockMenu = 1;
+						} else if(ArrowPush.selectStageNumber == 10
+						          && (PlayerPrefs.GetInt ("Stage01UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage02UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage03UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage04UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage05UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage06UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage07UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage08UnLock") != 1
+						    || PlayerPrefs.GetInt ("Stage09UnLock") != 1)){
+							
+							// 必要数以上に星を持っていなかった場合
+							Debug.Log ("ReturnUnlockScreen");
+							StarImage.SetActiveRecursively(false);
+							iTween.ScaleTo (returnUnlockMenu, iTween.Hash ("time", 0.5f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad"));
+							returnUnlockText.GetComponent<Text> ().text = "このステージで遊ぶには、他のステージ全てを\nクリアする必要があります。";
+							
+							// ロック解除選択画面中
+							nowLockMenu = 2;
+						} else {
+							// 必要数以上に星を持っていた場合
+							Debug.Log ("UnlockScreen");
+							// “使用しない”を選択状態にする
+							Button doUnlockButton = doNotUnlock.GetComponent<Button> ();
+							doUnlockButton.Select ();
+							isUnlock = false;
+							
+							iTween.ScaleTo (unlockMenu, iTween.Hash ("time", 0.5f, "x", 1, "y", 1, "z", 1, "easeType", "easeOutQuad"));
+							unlockText.GetComponent<Text> ().text = "このステージで遊ぶには 　 が" + stageObjUnlockStar[ArrowPush.selectStageNumber] + "つ必要です。";
+							
+							// ロック解除選択画面中
+							nowLockMenu = 1;
+						}
 					} else {
 						
 						// 必要数以上に星を持っていなかった場合
