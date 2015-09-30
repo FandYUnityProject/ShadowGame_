@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -240,6 +238,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -256,7 +255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1001 &114483805
 Prefab:
   m_ObjectHideFlags: 0
@@ -306,7 +305,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87f9008a8ec94734794a917392c0fae1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 600
+      value: 530
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 87f9008a8ec94734794a917392c0fae1, type: 3}
       propertyPath: m_Name
@@ -1048,6 +1047,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -1463,6 +1463,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -1542,6 +1543,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: .274509817}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -2120,19 +2127,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87f9008a8ec94734794a917392c0fae1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: .499999851
+      value: .499999791
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87f9008a8ec94734794a917392c0fae1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: .500000238
+      value: .500000179
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87f9008a8ec94734794a917392c0fae1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: .49999994
+      value: .499999881
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87f9008a8ec94734794a917392c0fae1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -.500000119
+      value: -.50000006
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87f9008a8ec94734794a917392c0fae1, type: 3}
       propertyPath: m_RootOrder
@@ -2921,6 +2928,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -3935,6 +3943,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 323ee691acee64657b271263dfd4b2a7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3964,6 +3978,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -4092,6 +4107,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
