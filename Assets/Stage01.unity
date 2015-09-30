@@ -459,6 +459,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11413650, guid: f16986e89b2508747984c94a786b3141, type: 2}
+      propertyPath: PlayerRestartSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e172ef15eabd0e4589d358efb2fd912, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f16986e89b2508747984c94a786b3141, type: 2}
   m_IsPrefabParent: 0
@@ -470,6 +474,75 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 163902, guid: f16986e89b2508747984c94a786b3141, type: 2}
   m_PrefabInternal: {fileID: 291534118}
+--- !u!82 &334038099
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 334038098}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &334038103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d4773f9ac3dc4524b5bd0164586e1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerRestartSound: {fileID: 0}
 --- !u!1 &351707468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,6 +1849,10 @@ Prefab:
       propertyPath: BurstSound
       value: 
       objectReference: {fileID: 8300000, guid: e101b150d86792e4d95ff9dab6ad35d5, type: 3}
+    - target: {fileID: 11478556, guid: ccd57ea18faa640b89f2824e3ffc5c91, type: 2}
+      propertyPath: PlayerRestartSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e172ef15eabd0e4589d358efb2fd912, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ccd57ea18faa640b89f2824e3ffc5c91, type: 2}
   m_IsPrefabParent: 0
