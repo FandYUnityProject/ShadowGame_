@@ -514,7 +514,6 @@ GameObject:
   - 4: {fileID: 464488}
   - 137: {fileID: 13733014}
   - 114: {fileID: 11476594}
-  - 136: {fileID: 13689964}
   m_Layer: 0
   m_Name: face
   m_TagString: Body
@@ -831,7 +830,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 452626}
   - 114: {fileID: 11446590}
-  - 135: {fileID: 13544390}
+  - 135: {fileID: 13558510}
   m_Layer: 0
   m_Name: cCamPos
   m_TagString: MainCamera
@@ -1296,8 +1295,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163902}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: -22, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalPosition: {x: -8.27999973, y: 0, z: .920000017}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 400032}
@@ -1847,7 +1846,7 @@ MonoBehaviour:
   lookSmoother: 3
   useCurves: 1
   useCurvesHeight: .5
-  forwardSpeed: 8
+  forwardSpeed: 7
   backwardSpeed: 2
   rotateSpeed: 2
   jumpPower: 3
@@ -1865,7 +1864,7 @@ MonoBehaviour:
   rayLength: 1.5
   shader1: {fileID: 0}
   shader2: {fileID: 0}
---- !u!135 &13544390
+--- !u!135 &13558510
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1890,19 +1889,6 @@ CapsuleCollider:
   m_Height: 4.05163336
   m_Direction: 1
   m_Center: {x: 0, y: 2.20000005, z: 0}
---- !u!136 &13689964
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145266}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: .00996966008
-  m_Height: .0599999987
-  m_Direction: 1
-  m_Center: {x: -2.0661344e-05, y: .0199999996, z: -.00112738833}
 --- !u!137 &13708022
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
