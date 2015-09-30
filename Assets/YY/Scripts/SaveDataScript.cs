@@ -49,10 +49,12 @@ public class SaveDataScript : MonoBehaviour
 						PlayerPrefs.SetInt ("Stage0" + i + "TwoStarsClear", 1);
 						PlayerPrefs.SetInt ("Stage0" + i + "OneStarClear", 1);
 					} else {
+						/*
 						PlayerPrefs.SetInt ("Stage" + i + "UnLock", 1);
 						PlayerPrefs.SetInt ("Stage" + i + "ThreeStarsClear", 1);
 						PlayerPrefs.SetInt ("Stage" + i + "TwoStarsClear", 1);
 						PlayerPrefs.SetInt ("Stage" + i + "OneStarClear", 1);
+						*/
 					}
 				}
 
@@ -78,7 +80,7 @@ public class SaveDataScript : MonoBehaviour
 					}
 				}
 
-				PlayerPrefs.SetString ("Stars", "99");
+				PlayerPrefs.SetString ("Stars", "0");
 			}
 		} else {
 			for (int i=1; i<=5; i++){

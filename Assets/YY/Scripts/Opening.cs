@@ -48,7 +48,7 @@ public class Opening : MonoBehaviour {
 				Debug.Log ("LeftClick02");
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.Return)) {
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown ("Submit")) {
 			if(NowSceane == 1){
 				iTween.CameraFadeTo(iTween.Hash("amount",0.0f,"time",1.5f, "delay", 0.0f,"oncomplete","OnStart02","oncompletetarget",this.gameObject));
 				Debug.Log ("Enter01");

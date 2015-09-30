@@ -11,7 +11,9 @@ public class PlayerStartPosition : MonoBehaviour {
 	
 		startObj  = GameObject.Find ("StartObj");
 		this.gameObject.transform.position = new Vector3 (startObj.transform.position.x, startObj.transform.position.y, startObj.transform.position.z);
-		
+
+		AlertScreen.isAlertScreen = false;
+
 		GetComponent<AudioSource>().PlayOneShot(PlayerRestartSound);
 	}
 	
